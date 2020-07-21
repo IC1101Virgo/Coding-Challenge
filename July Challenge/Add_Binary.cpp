@@ -23,6 +23,7 @@ public:
         //carry
          
             sum/=2;
+            //as backward
         x--;
         y--;
         }
