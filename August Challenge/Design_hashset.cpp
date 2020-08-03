@@ -49,7 +49,7 @@ class Buckets{
         if(contains(key)) buckets[bucketID].setItem(key, -1);
     }
     
-    /** Returns true if this set contains the specified element */
+    
     public boolean contains(int key) {
         int bucketID = hashBucket(key);
         return buckets[bucketID] != null && buckets[bucketID].getItem(key) != -1;
