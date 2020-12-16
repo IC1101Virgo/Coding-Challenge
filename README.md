@@ -1,8 +1,8 @@
-# LeetCoding-Challenge
+# Coding-Challenge
 
 ## Purpose
  
-This is a collection of **LeetCode Challenge Codes** which I am solving. I will be participatng in it and uploading my codes here. I will be solving my codes in **C++** language.
+This is a collection of **Codes** which I am solving. 
 
 
 ## Contribute 😊 ❤️ 
