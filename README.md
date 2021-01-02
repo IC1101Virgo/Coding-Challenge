@@ -1,4 +1,8 @@
 # Coding-Challenge
+Starting #30DaysOfCode Challenge
+I will be solving various coding questions Daily!
+
+
 
 ## Purpose
  
