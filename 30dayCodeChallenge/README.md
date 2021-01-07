@@ -17,3 +17,9 @@ https://leetcode.com/problems/maximum-subarray/submissions/
 Day 4:
 
 https://leetcode.com/submissions/detail/439202606/
+
+Day 5:
+
+https://leetcode.com/problems/merge-sorted-array/submissions/
+
+https://leetcode.com/problems/pascals-triangle/submissions/
