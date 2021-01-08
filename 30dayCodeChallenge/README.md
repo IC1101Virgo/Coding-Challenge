@@ -23,3 +23,8 @@ Day 5:
 https://leetcode.com/problems/merge-sorted-array/submissions/
 
 https://leetcode.com/problems/pascals-triangle/submissions/
+
+Day 6:
+
+https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1/?track=md-arrays&batchId=144#
+
