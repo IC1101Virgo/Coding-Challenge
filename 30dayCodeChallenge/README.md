@@ -28,3 +28,6 @@ Day 6:
 
 https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1/?track=md-arrays&batchId=144#
 
+Day 7:
+
+https://leetcode.com/problems/single-number/submissions/
