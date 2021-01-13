@@ -31,3 +31,5 @@ https://practice.geeksforgeeks.org/problems/missing-number-in-array1416/1/?track
 Day 7:
 
 https://leetcode.com/problems/single-number/submissions/
+
+https://leetcode.com/problems/happy-number/submissions/
