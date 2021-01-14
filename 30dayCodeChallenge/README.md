@@ -33,3 +33,7 @@ Day 7:
 https://leetcode.com/problems/single-number/submissions/
 
 https://leetcode.com/problems/happy-number/submissions/
+
+Day 8:
+
+https://leetcode.com/problems/count-primes/submissions/
