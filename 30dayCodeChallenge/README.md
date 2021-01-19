@@ -37,3 +37,7 @@ https://leetcode.com/problems/happy-number/submissions/
 Day 8:
 
 https://leetcode.com/problems/count-primes/submissions/
+
+Day 9:
+
+https://onlinegdb.com/8F42meJTm
