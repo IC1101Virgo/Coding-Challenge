@@ -41,3 +41,11 @@ https://leetcode.com/problems/count-primes/submissions/
 Day 9:
 
 https://onlinegdb.com/8F42meJTm
+
+Day 10:
+
+https://leetcode.com/problems/merge-two-sorted-lists/submissions/
+
+https://leetcode.com/problems/remove-duplicates-from-sorted-list/submissions/
+
+
