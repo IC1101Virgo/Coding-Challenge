@@ -54,3 +54,7 @@ Day 11:
 
 https://practice.geeksforgeeks.org/problems/finding-middle-element-in-a-linked-list/1/?track=md-linkedlist&batchId=144#
 
+Day 12:
+
+https://leetcode.com/problems/intersection-of-two-linked-lists/submissions/
+
