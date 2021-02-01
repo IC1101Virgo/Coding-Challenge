@@ -62,3 +62,7 @@ Day 13:
 
 https://leetcode.com/problems/reverse-integer/submissions/
 
+Day 14:
+
+https://leetcode.com/problems/palindrome-linked-list/submissions/
+
