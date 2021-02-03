@@ -70,3 +70,7 @@ Day 15:
 
 https://ide.geeksforgeeks.org/
 
+Day 16:
+
+https://leetcode.com/problems/majority-element/submissions/
+
