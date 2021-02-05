@@ -78,3 +78,7 @@ Day 17:
 
 https://practice.geeksforgeeks.org/problems/0cba668df04d657fde4d1bd28b626a01e61097f1/1/?track=30-DOC-day-10&batchId=320#
 
+Day 18:
+
+https://practice.geeksforgeeks.org/problems/nth-natural-number/0/?track=MD-Math&batchId=144#
+
