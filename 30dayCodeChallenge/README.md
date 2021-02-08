@@ -85,3 +85,6 @@ https://practice.geeksforgeeks.org/problems/nth-natural-number/0/?track=MD-Math&
 Day 19:
 
 https://practice.geeksforgeeks.org/problems/nth-natural-number/1/?track=MD-Math&batchId=144
+
+Day 20:
+
