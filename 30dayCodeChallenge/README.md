@@ -88,3 +88,5 @@ https://practice.geeksforgeeks.org/problems/nth-natural-number/1/?track=MD-Math&
 
 Day 20:
 
+https://practice.geeksforgeeks.org/problems/rightmost-different-bit-1587115621/1/?track=md-bm&batchId=144
+
