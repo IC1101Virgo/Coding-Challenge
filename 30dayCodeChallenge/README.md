@@ -90,3 +90,6 @@ Day 20:
 
 https://practice.geeksforgeeks.org/problems/rightmost-different-bit-1587115621/1/?track=md-bm&batchId=144
 
+Day 21:
+https://practice.geeksforgeeks.org/problems/set-kth-bit3724/1/?track=md-bm&batchId=144
+
