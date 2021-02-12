@@ -91,5 +91,10 @@ Day 20:
 https://practice.geeksforgeeks.org/problems/rightmost-different-bit-1587115621/1/?track=md-bm&batchId=144
 
 Day 21:
+
 https://practice.geeksforgeeks.org/problems/set-kth-bit3724/1/?track=md-bm&batchId=144
+
+Day 22:
+
+https://practice.geeksforgeeks.org/problems/number-is-sparse-or-not-1587115620/0/?track=md-bm#
 
