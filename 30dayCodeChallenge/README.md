@@ -98,3 +98,6 @@ Day 22:
 
 https://practice.geeksforgeeks.org/problems/number-is-sparse-or-not-1587115620/0/?track=md-bm#
 
+Day 23:
+
+https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1/?track=md-matrix&batchId=144#
