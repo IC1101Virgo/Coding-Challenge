@@ -101,3 +101,7 @@ https://practice.geeksforgeeks.org/problems/number-is-sparse-or-not-1587115620/0
 Day 23:
 
 https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115621/1/?track=md-matrix&batchId=144#
+
+Day 24:
+
+https://practice.geeksforgeeks.org/problems/boolean-matrix-problem-1587115620/1/?track=md-matrix&batchId=144
