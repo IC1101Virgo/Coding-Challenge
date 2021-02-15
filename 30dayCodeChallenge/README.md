@@ -105,3 +105,7 @@ https://practice.geeksforgeeks.org/problems/spirally-traversing-a-matrix-1587115
 Day 24:
 
 https://practice.geeksforgeeks.org/problems/boolean-matrix-problem-1587115620/1/?track=md-matrix&batchId=144
+
+Day 25:
+
+https://practice.geeksforgeeks.org/problems/sum-of-two-numbers-without-using-arithmetic-operators/1/?track=md-bm&batchId=144#
