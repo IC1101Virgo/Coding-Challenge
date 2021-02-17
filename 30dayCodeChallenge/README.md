@@ -113,3 +113,7 @@ https://practice.geeksforgeeks.org/problems/sum-of-two-numbers-without-using-ari
 Day 26:
 
 https://practice.geeksforgeeks.org/problems/maximum-and-value2637/0/?track=md-bm&batchId=144
+
+Day 27:
+
+https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/0/?track=md-linkedlist&batchId=144
