@@ -117,3 +117,7 @@ https://practice.geeksforgeeks.org/problems/maximum-and-value2637/0/?track=md-bm
 Day 27:
 
 https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/0/?track=md-linkedlist&batchId=144
+
+Day 28:
+
+https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1/?track=md-stack&batchId=144#
