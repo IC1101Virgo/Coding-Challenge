@@ -121,3 +121,7 @@ https://practice.geeksforgeeks.org/problems/reverse-a-linked-list/0/?track=md-li
 Day 28:
 
 https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1/?track=md-stack&batchId=144#
+
+Day 29:
+
+https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1/?track=md-stack&batchId=144
