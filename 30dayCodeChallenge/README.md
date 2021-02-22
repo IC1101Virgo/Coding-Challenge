@@ -125,3 +125,7 @@ https://practice.geeksforgeeks.org/problems/parenthesis-checker2744/1/?track=md-
 Day 29:
 
 https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1/?track=md-stack&batchId=144
+
+Day 30:
+
+https://practice.geeksforgeeks.org/problems/get-minimum-element-from-stack/1/?track=md-stack&batchId=144
