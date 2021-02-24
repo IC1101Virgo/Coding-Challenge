@@ -129,3 +129,7 @@ https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1/?tr
 Day 30:
 
 https://practice.geeksforgeeks.org/problems/get-minimum-element-from-stack/1/?track=md-stack&batchId=144 
+
+Day 31:
+
+https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1/?track=md-stack&batchId=144#
