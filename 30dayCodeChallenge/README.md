@@ -133,3 +133,7 @@ https://practice.geeksforgeeks.org/problems/get-minimum-element-from-stack/1/?tr
 Day 31:
 
 https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1/?track=md-stack&batchId=144#
+
+Day 32:
+
+https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1/?track=md-tree&batchId=144#
