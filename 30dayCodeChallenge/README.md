@@ -137,3 +137,7 @@ https://practice.geeksforgeeks.org/problems/stock-span-problem-1587115621/1/?tra
 Day 32:
 
 https://practice.geeksforgeeks.org/problems/height-of-binary-tree/1/?track=md-tree&batchId=144#
+
+Day 33:
+
+https://practice.geeksforgeeks.org/problems/symmetric-tree/0/?track=md-tree&batchId=144#
