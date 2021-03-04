@@ -149,3 +149,7 @@ https://practice.geeksforgeeks.org/problems/level-order-traversal-in-spiral-form
 Day 35:
 
 https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1/?track=md-tree&batchId=144#
+
+Day 36:
+
+https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical/0/?track=md-tree&batchId=144#
