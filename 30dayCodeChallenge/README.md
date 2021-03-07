@@ -153,3 +153,7 @@ https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1/?track=md-
 Day 36:
 
 https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical/0/?track=md-tree&batchId=144#
+
+Day 37:
+
+https://www.interviewbit.com/problems/kth-smallest-element-in-tree/
