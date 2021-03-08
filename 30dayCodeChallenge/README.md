@@ -157,3 +157,7 @@ https://practice.geeksforgeeks.org/problems/determine-if-two-trees-are-identical
 Day 37:
 
 https://www.interviewbit.com/problems/kth-smallest-element-in-tree/
+
+Day 38:
+
+https://www.interviewbit.com/problems/inorder-traversal-of-cartesian-tree/
