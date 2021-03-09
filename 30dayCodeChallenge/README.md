@@ -161,3 +161,7 @@ https://www.interviewbit.com/problems/kth-smallest-element-in-tree/
 Day 38:
 
 https://www.interviewbit.com/problems/inorder-traversal-of-cartesian-tree/
+
+Day 39:
+
+https://www.interviewbit.com/problems/binary-tree-from-inorder-and-postorder/
