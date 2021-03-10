@@ -165,3 +165,7 @@ https://www.interviewbit.com/problems/inorder-traversal-of-cartesian-tree/
 Day 39:
 
 https://www.interviewbit.com/problems/binary-tree-from-inorder-and-postorder/
+
+Day 40:
+
+https://www.interviewbit.com/problems/invert-the-binary-tree/
