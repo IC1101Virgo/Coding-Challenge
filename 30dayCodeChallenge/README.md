@@ -169,3 +169,7 @@ https://www.interviewbit.com/problems/binary-tree-from-inorder-and-postorder/
 Day 40:
 
 https://www.interviewbit.com/problems/invert-the-binary-tree/
+
+Day 41:
+
+https://www.interviewbit.com/problems/path-sum/
