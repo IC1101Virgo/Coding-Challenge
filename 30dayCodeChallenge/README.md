@@ -173,3 +173,7 @@ https://www.interviewbit.com/problems/invert-the-binary-tree/
 Day 41:
 
 https://www.interviewbit.com/problems/path-sum/
+
+Day 42:
+
+https://www.interviewbit.com/problems/root-to-leaf-paths-with-sum/
