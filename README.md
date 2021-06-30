@@ -8,7 +8,7 @@ I will be solving various coding questions Daily!
 
 
 ## Contribute 😊 ❤️ 
-Any suggestions and thoughts is always welcomed. 
+Any suggestions are always welcomed. 
 
 
 
