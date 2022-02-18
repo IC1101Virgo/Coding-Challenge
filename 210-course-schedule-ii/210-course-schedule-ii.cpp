@@ -1,36 +1,48 @@
 class Solution {
 public:
-    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
-         vector<int>adj[numCourses];
+    bool kahn(int n, vector<int> adj[], vector<int> &indegree, vector<int> &ans){
         queue<int>q;
-        vector<int>indegree(numCourses,0);
-        //store 
-         for(int i =0; i< prerequisites.size(); i++ ){
-            adj[prerequisites[i][1]].push_back(prerequisites[i][0]);
+        
+        for(int i=0;i<n;i++){
+            if(indegree[i]==0)
+                q.push(i);
         }
-        //indegree u -> v
-        for(int i =0; i < prerequisites.size(); i++){
-            indegree[prerequisites[i][0]]++;
-            
-        }
-        //push into q,indegree having 0
-        for(int i =0; i< indegree.size(); i++){
-            if(indegree[i] == 0)q.push(i);
-        }
-        vector<int>result;
-        //Simple BFS and keep storing indegree values equal to 0 into result vector
+        
+        int count=0;
+        
         while(!q.empty()){
-           int v = q.front();
+            int x=q.front();
             q.pop();
-            for(auto it : adj[v]){
-                indegree[it]--;
-                 if(indegree[it] == 0)q.push(it);
+            
+            for(auto edge:adj[x]){
+                indegree[edge]--;
+                
+                if(indegree[edge]==0)
+                    q.push(edge);
             }
-            result.emplace_back(v);
+            ans.push_back(x);
+            count++;
         }
-        //check case 
-        if (result.size() != numCourses)
-        result.clear();
-        return result;
+        
+        if(count!=n)
+            return false;
+        return true;
+    }
+    vector<int> findOrder(int n, vector<vector<int>>& pre) {
+        int num=pre.size();
+        
+        vector<int> adj[n];
+        vector<int> ans;
+        vector<int>indegree(n,0);
+        
+        for(auto edge:pre){
+            adj[edge[1]].push_back(edge[0]);
+            indegree[edge[0]]++;
+        }
+        
+        if(kahn(n,adj,indegree,ans))
+            return ans;
+        
+        else return{};
     }
 };
