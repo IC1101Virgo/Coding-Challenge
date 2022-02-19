@@ -1,18 +1,21 @@
 class Solution {
 public:
     int countPairs(vector<int>& nums, int k) {
-      int c=0;
-        int i,j;
-        for(i=0;i<nums.size()-1;i++)
-        {
-            for(j=i+1;j<nums.size();j++)
-            {
-                if(nums[i]==nums[j] && (i*j)%k==0)
-                {
-                    c++;
+      unordered_map<int, vector<int>> numToIndex;
+        int result=0;
+        for (int i=0;i<nums.size(); i++){
+		
+            if (numToIndex.find(nums[i])!=numToIndex.end()){ 
+                for (int pos: numToIndex[nums[i]]){
+                    if ( (pos*i)%k == 0){
+                        result++;
+                    }
                 }
+                numToIndex[nums[i]].push_back(i);
+            }else{
+                numToIndex[nums[i]]={i};            
             }
         }
-        return c;
+        return result;
     }
 };
