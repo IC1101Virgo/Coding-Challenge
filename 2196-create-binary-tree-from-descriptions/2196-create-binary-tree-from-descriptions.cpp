@@ -1,57 +1,46 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
-public:
-    unordered_map<int,TreeNode*> um;
-    
-    TreeNode* helper(int val){
-        TreeNode *node=NULL;
-        
-        if(um.find(val)==um.end()){
-            node=new TreeNode(val);
-            um[val]=node;
+private: 
+		// Map to store node value and its pointer
+	    unordered_map<int, TreeNode*> nodeMap;
+private: 
+	// Helper function to getNode by value
+	TreeNode* getNode(int val) {
+        TreeNode* node = NULL;
+		// If node is not present in map, 
+		// Then create a new node, and store it in map
+        if(nodeMap.find(val) == nodeMap.end()) {
+            node = new TreeNode(val);
+            nodeMap[val] = node;
         }
-        
-        else{
-            node=um[val];
+		// If node is already present in map then return it
+        else {
+            node = nodeMap[val];
         }
-        
         return node;
     }
-    
+public:
+       
     TreeNode* createBinaryTree(vector<vector<int>>& descriptions) {
         
-        unordered_set<int> m;
-        
-        
-        for(auto& des : descriptions){
-            int p=des[0], c=des[1];
-            bool l=des[2];
+        unordered_set<int> isChild; // used to track if a node is child of some other node
+        for(auto& description : descriptions) {
+            int val = description[0], child = description[1];
+            bool left = (description[2]);
             
-             TreeNode *x=helper(p);
-            
-            if(l){
-                x->left=helper(c);
+			// Get node and then connect to left or right child accordingly
+            TreeNode* node = getNode(val);
+            if(left) {
+                node->left = getNode(child);
             }
-            
-            else{
-                x->right=helper(c);
+            else {
+                node->right = getNode(child);   
             }
-            m.insert(c);
-            
+            isChild.insert(child);
         }
         
-        for(auto& [node, ptr] : um) {
-            if(m.find(node) == m.end()) return ptr;
+		// Iterate over map, and get root node
+        for(auto& [node, ptr] : nodeMap) {
+            if(isChild.find(node) == isChild.end()) return ptr;
         }
         return NULL;
     }
