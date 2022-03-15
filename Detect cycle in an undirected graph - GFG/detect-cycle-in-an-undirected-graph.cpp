@@ -6,36 +6,41 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
-    bool doDFS(int V, vector<int> adj[], vector<bool> &visited, int i, int par){
-        visited[i] = true;
-        for(int j = 0; j < adj[i].size(); j++){
-            if(visited[adj[i][j]] == false){
-                if(doDFS(V, adj, visited, adj[i][j], i)){
-                    return true;
-                }
-            }
+    bool helper(int x, vector<int> adj[], vector<int> vis){
+        if(vis[x]==2)
+        return true;
+        
+        vis[x]=1;
+        
+        for(int i=0;i<adj[x].size();i++){
+            if(vis[adj[x][i]]==1)
+            vis[adj[x][i]]=2;
+            
             else{
-                if(adj[i][j] != par ){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
-    bool isCycle(int V, vector<int> adj[]) {
-        // Code here
-        vector<bool> visited (V, false);
-        bool isCycle = false;
-        for(int i = 0; i < V; i++){
-            if(visited[i] == false){
-                isCycle = doDFS(V, adj, visited, i, -1);
-            }
-            if(isCycle){
+                if(helper(adj[x][i],adj,vis))
                 return true;
             }
         }
-        return isCycle;
+        
+        return false;
+    }
+    bool isCycle(int V, vector<int> adj[]) {
+        // Code here
+        
+        vector<int> vis(V,0);
+        
+        for(int i=0;i<V;i++){
+            vis[i]=1;
+            
+            for(int j=0;j<adj[i].size();j++){
+                if(helper(adj[i][j],adj,vis))
+                return true;
+            }
+            
+            vis[i]=0;
+        }
+        
+        return false;
     }
 };
 
