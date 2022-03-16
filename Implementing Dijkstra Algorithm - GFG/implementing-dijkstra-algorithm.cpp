@@ -8,33 +8,29 @@ class Solution
 	public:
 	//Function to find the shortest distance of all the vertices
     //from the source vertex S.
-    vector <int> dijkstra(int n, vector<vector<int>> g[], int source)
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
         // Code here
-        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        vector<int> ans(V,1e9);
+        priority_queue<pair<int,int>> pq;
+        pq.push({0,S});
+        ans[S] = 0;
         
-        vector<int> distTo (n,INT_MAX);
+        while(pq.size()){
+            auto top = pq.top(); pq.pop();
+            int dist = top.first;
+            int node = top.second;
+            
+            for(auto &it : adj[node]){
+                int curr_dist = dist + it[1];
+                if(curr_dist < ans[it[0]]){
+                    ans[it[0]] = curr_dist;
+                    pq.push({curr_dist,it[0]});
+                }
+            }
+        }
         
-       distTo[source] = 0;
-	pq.push(make_pair(0,source));	// (dist,from)
-	
-	while( !pq.empty() ){
-		int dist = pq.top().first;
-		int prev = pq.top().second;
-		pq.pop();
-		
-		vector<pair<int,int> >::iterator it;
-		for( auto it:g[prev]){
-			int next = it[0];
-			int nextDist = it[1];
-			if( distTo[next] > distTo[prev] + nextDist){
-				distTo[next] = distTo[prev] + nextDist;
-				pq.push(make_pair(distTo[next], next));
-			}
-		}
-	}
-		return distTo;
-        
+        return ans;
     }
 };
 
