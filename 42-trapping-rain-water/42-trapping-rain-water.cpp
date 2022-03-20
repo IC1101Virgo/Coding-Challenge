@@ -12,15 +12,16 @@ public:
         
         while(i<j){
             if(A[i]<A[j]){
-                lm=max(lm,A[++i]);
+                lm=max(lm,A[i]);
                     trapwater+=lm-A[i];
+                i++;
               
             }
             
             else{
-                rm=max(rm,A[--j]);
+                rm=max(rm,A[j]);
                 trapwater+=rm-A[j];
-              
+              j--;
             }
         }
         
