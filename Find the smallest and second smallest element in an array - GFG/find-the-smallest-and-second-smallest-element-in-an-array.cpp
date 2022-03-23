@@ -36,7 +36,7 @@ vector<int> minAnd2ndMin(int a[], int n) {
            secondSmallest = firstSmallest;
            firstSmallest = a[i];
        }
-       else if(a[i]<secondSmallest && firstSmallest != a[i])
+       else if(a[i]<secondSmallest && firstSmallest < a[i])
        {
            secondSmallest = a[i];
        }
