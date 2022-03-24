@@ -21,9 +21,7 @@ public:
               high--;
           }
           else{
-              int temp = arr[low];
-              arr[low] = arr[high];
-              arr[high] = temp;
+              swap(arr[low],arr[high]);
               low++;
               high--;
           }
