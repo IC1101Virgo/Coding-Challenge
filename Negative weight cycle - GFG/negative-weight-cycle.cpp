@@ -7,26 +7,18 @@ class Solution {
 public:
 	int isNegativeWeightCycle(int n, vector<vector<int>>edges){
 	    // Code here
-	     int dist[n];
-	    memset(dist,INT_MAX,sizeof(dist));
-	    dist[0] =0;
-	    for(int i=0;i<n;i++){
-	        for(int j=0;j<edges.size();j++){
-	            vector<int> curr_edge = edges[j];
-	            int u = curr_edge[0],v=curr_edge[1], wt = curr_edge[2];
-	            if(dist[v]> dist[u] + wt){
-	                dist[v] = dist[u]+ wt;
-	            }
-	        }
-	    }
-	    for(int j=0;j<edges.size();j++){
-	            vector<int> curr_edge = edges[j];
-	            int u = curr_edge[0],v=curr_edge[1], wt = curr_edge[2];
-	            if(dist[v]> dist[u] + wt){
-	                return 1;
-	            }
-	}
-	return 0;
+	      vector<int>dist(n,INT_MAX);
+    dist[0]=0;
+    for(int i=1;i<=n-1;i++)
+    {for(auto it:edges)
+        {if(dist[it[0]]+it[2]<dist[it[1]] &&dist[it[0]]!=INT_MAX)
+                dist[it[1]]=dist[it[0]]+it[2];
+    }   }
+    for(auto it:edges)
+    {if(dist[it[0]]+it[2]<dist[it[1]])
+            return 1;
+    }
+    return 0;
 	}
 };
 
