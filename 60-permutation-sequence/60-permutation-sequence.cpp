@@ -1,21 +1,43 @@
 class Solution {
 public:
-    string getPermutation(int A, int B) {
-        vector<int> v;
+    vector<int> fact;
+    vector<int> digit;
     
-    for(int i=1;i<=A;i++)
-    v.push_back(i);
+    void helper(int n, int k, string &ans){
+        if(n==1){
+            ans+=to_string(digit.back());
+        return;
+        }
     
-    do{
-        B--;
-    }while(next_permutation(v.begin(),v.end()) && B!=1);
+    int index=k/fact[n-1];
     
-    string s="";
+    if(k%fact[n-1]==0)
+        index-=1;
     
-    for(int i:v){
-        s=s+to_string(i);
+    ans+=to_string(digit[index]);
+    
+    digit.erase(digit.begin()+index);
+    
+    k-=fact[n-1]*index;
+    
+        helper(n-1,k,ans);
     }
-    
-    return s;
+    string getPermutation(int n, int k) {
+      fact.push_back(1);
+        int f=1;
+        
+        for(int i=1;i<n;i++){
+            f*=i;
+            fact.push_back(f);
+        }
+        
+        for(int i=1;i<=n;i++){
+            digit.push_back(i);
+        }
+        
+        string ans="";
+        
+        helper(n,k,ans);
+        return ans;
     }
 };
