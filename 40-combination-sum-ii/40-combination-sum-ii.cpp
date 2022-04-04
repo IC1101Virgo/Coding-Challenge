@@ -28,7 +28,7 @@ public:
     vector<vector<int>> res;
     vector<int> v;
     helper(res,v,0,A,B);
-    sort(res.begin(),res.end());
+   
     return res;
     }
 };
