@@ -9,51 +9,50 @@ class Solution
 {
 	public:
 	//Function to find sum of weights of edges of the Minimum Spanning Tree.
-    int spanningTree(int N, vector<vector<int>> adj[])
+    int spanningTree(int n, vector<vector<int>> adj[])
     {
         // code here
+        int key[n];
+        int parent[n];
+        bool mst[n];
         
-	int parent[N]; 
-      
-    int key[N]; 
-      
-    bool mstSet[N]; 
-  
-    for (int i = 0; i < N; i++) 
-        key[i] = INT_MAX, mstSet[i] = false; 
-    
-    priority_queue< pair<int,int>, vector <pair<int,int>> , greater<pair<int,int>> > pq;
-
-    key[0] = 0; 
-    parent[0] = -1; 
-    pq.push({0, 0});
-    int ans=0;
-    
-     while(!pq.empty())
-    { 
-        int u = pq.top().second; 
-        pq.pop(); 
+        for(int i=0;i<n;i++){
+            key[i]=INT_MAX;
+            parent[i]=-1;
+            mst[i]=false;
+        }
         
-        mstSet[u] = true; 
+        key[0]=0;
+       
         
-        for (auto it : adj[u]) {
-            int v = it[0];
-            int weight = it[1];
-            if (mstSet[v] == false && weight < key[v]) {
-                parent[v] = u;
-		key[v] = weight; 
-		
-                pq.push({key[v], v});    
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        
+        pq.push({0,0});
+        
+        while(!pq.empty()){
+            int u=pq.top().second;
+           
+            pq.pop();
+            mst[u]=true;
+            
+            for(auto it:adj[u]){
+                int v=it[0];
+                int weight=it[1];
+                
+                if(mst[v]==false && weight<key[v]){
+                    parent[v]=u;
+                    key[v]=weight;
+                    pq.push({key[v],v});
+                }
             }
         }
-            
-    } 
-    
-    for(int i=0;i<N;i++)
-    ans+=key[i];
-    
-    return ans;
-    
+        
+        int ans=0;
+        for(int i=0;i<n;i++){
+            ans+=key[i];
+        }
+        
+        return ans;
     }
 };
 
