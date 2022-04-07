@@ -27,6 +27,7 @@ class Solution
     key[0] = 0; 
     parent[0] = -1; 
     pq.push({0, 0});
+    int ans=0;
     
      while(!pq.empty())
     { 
@@ -41,19 +42,18 @@ class Solution
             if (mstSet[v] == false && weight < key[v]) {
                 parent[v] = u;
 		key[v] = weight; 
+		
                 pq.push({key[v], v});    
             }
         }
             
     } 
     
-    int ans=0;
-    
-    for(int i=0;i<N;i++){
-        ans+=key[i];
-    }
+    for(int i=0;i<N;i++)
+    ans+=key[i];
     
     return ans;
+    
     }
 };
 
