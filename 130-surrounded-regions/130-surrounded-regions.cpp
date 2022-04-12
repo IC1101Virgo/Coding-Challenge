@@ -33,11 +33,15 @@ public:
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
 
+                
+                
                 if(b[i][j]=='O')
                     b[i][j]='X';
                 
                  if(b[i][j]=='a')
                     b[i][j]='O';
+                
+                
                 
             }
         }
