@@ -18,26 +18,27 @@ public:
 
 class Solution {
 public:
-    Node* connect(Node* A) {
-        queue<Node *>q;
-    q.push(A);
-    q.push(NULL);
-    
-    while(!q.empty()){
-       Node *temp=q.front();
-        if(!temp) break;
-        q.pop();
+    Node* connect(Node* root) {
+        queue<Node*> q;
+        q.push(root);
+        q.push(NULL);
         
-        temp->next=q.front();
-        
-        if(temp->left) q.push(temp->left);
-        if(temp->right) q.push(temp->right);
-        
-        if(!q.front()){
+        while(!q.empty()){
+            Node* temp=q.front();
+            if(!temp) break;
             q.pop();
-            q.push(NULL);
+            
+            temp->next=q.front();
+            
+            if(temp->left) q.push(temp->left);
+               if(temp->right) q.push(temp->right);
+            
+            if(!q.front()){
+                q.pop();
+                q.push(NULL);
+            }
         }
-    }
-    return A;
+        
+        return root;
     }
 };
