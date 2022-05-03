@@ -11,26 +11,28 @@
  */
 class BSTIterator {
 public:
-    stack<TreeNode*>s;
+    stack<TreeNode *>s;
     void helper(TreeNode *root){
         while(root!=NULL){
         s.push(root);
         root=root->left;
         }
+        
     }
     BSTIterator(TreeNode* root) {
         helper(root);
     }
     
     int next() {
-       TreeNode *top=s.top();
+        TreeNode *top=s.top();
         s.pop();
-        helper(top->right);
+         helper(top->right);
         return top->val;
+       
     }
     
     bool hasNext() {
-       return s.empty()?0:1;
+        return s.empty()?0:1;
     }
 };
 
