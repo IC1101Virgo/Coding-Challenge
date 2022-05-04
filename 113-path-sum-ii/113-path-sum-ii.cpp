@@ -22,7 +22,7 @@ public:
         
         if(!root->left && !root->right && sum==t){
             res.push_back(v);
-            v.clear();
+            
         }
         
         helper(root->left,sum,v,t);
