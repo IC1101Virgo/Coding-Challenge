@@ -6,24 +6,16 @@ public:
         int i=0,j=n-1;
         
         while(i<=j){
-           if(iswalnum(s[i])){
-               if(iswalnum(s[j])){
-                   s[i]=tolower(s[i]);
-                   s[j]=tolower(s[j]);
-                   if(s[i]!=s[j]){
-                       return false;
-                   }
-                   
-                   else{
-                       i++;
-                       j--;
-                   }
-               }
-               else j--;
-           }
-            else i++;
-        }
-        
+           if(!isalnum(s[i])) i++;
+            
+            else if(!isalnum(s[j])) j--;
+            
+            else if(tolower(s[i])!=tolower(s[j])) return false;
+            
+            else{
+                i++; j--;
+            }
+    }
         return true;
     }
 };
