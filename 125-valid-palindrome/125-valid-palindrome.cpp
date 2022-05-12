@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int n=s.size();
+        
+        int i=0,j=n-1;
+        
+        while(i<=j){
+           if(iswalnum(s[i])){
+               if(iswalnum(s[j])){
+                   s[i]=tolower(s[i]);
+                   s[j]=tolower(s[j]);
+                   if(s[i]!=s[j]){
+                       return false;
+                   }
+                   
+                   else{
+                       i++;
+                       j--;
+                   }
+               }
+               else j--;
+           }
+            else i++;
+        }
+        
+        return true;
+    }
+};
