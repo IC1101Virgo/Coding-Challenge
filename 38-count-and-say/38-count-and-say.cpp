@@ -1,24 +1,26 @@
 class Solution {
 public:
-    string countAndSay(int n) {
-        if(n==1)
-            return "1";
-        
-        string a=countAndSay(n-1);
-        int count=0;
+    string helper(string s){
         string res="";
-        
-        for(int i=0;i<a.size();i++){
-            count++;
+        int cnt=0;
+        for(int i=0;i<s.size();i++){
+            cnt++;
             
-            if(a[i]!=a[i+1]){
-                res+=to_string(count)+a[i];
-                count=0;
+            if(s[i]!=s[i+1]){
+                res+=to_string(cnt)+s[i];
+                cnt=0;
             }
         }
         
         return res;
+    }
+    string countAndSay(int n) {
+        string res="1";
         
-       
+        while(--n){
+            res=helper(res);
+        }
+        
+        return res;
     }
 };
