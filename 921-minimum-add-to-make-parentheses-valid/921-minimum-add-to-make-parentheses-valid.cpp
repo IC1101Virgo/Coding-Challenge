@@ -11,16 +11,13 @@ public:
                 st.push(s[i]);
             
             else{
-                if(st.empty())
-                    cnt++;
+               if(!st.empty() && st.top()=='(')
+                   st.pop();
                 
-                else if(st.top()=='(')
-                    st.pop();
-                
-                else st.push('(');
+                else st.push(s[i]);
             }
         }
         
-        return st.size()+cnt;
+        return st.size();
     }
 };
