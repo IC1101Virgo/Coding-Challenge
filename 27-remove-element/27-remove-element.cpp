@@ -1,14 +1,19 @@
 class Solution {
 public:
     int removeElement(vector<int>& A, int B) {
-         int n=A.size();
-    int i=0,j=0;
-    for(;i<n && j<n;i++){
-        if(A[i]!=B){
-            A[j]=A[i];
-             j++;
+        int n=A.size();
+        
+        int count=0;
+        
+        for(int i=0;i<n;i++){
+            if(A[i]==B) continue;
+            
+            else{
+                A[count]=A[i];
+                count++;
+            }
         }
-    }
-    return j;
+        
+        return count;
     }
 };
