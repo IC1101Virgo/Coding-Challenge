@@ -23,22 +23,23 @@ class Solution
 {
     public:
     //Function to check whether a Binary Tree is BST or not.
-    bool check(Node* node,int min,int max){
-        if(node==NULL) return 1;
+    bool check(Node *root, Node *l, Node *r){
+        if(root==NULL)
+        return true;
         
-       if(node->data<min||node->data>max){
-            return 0;
-        }
+        if(l!=NULL && root->data<=l->data)
+        return false;
         
-        else
-            check(node->left,min,node->data-1)&&check(node->right,node->data+1,max);
-        //return 0;
+        if(r!=NULL && root->data>=r->data)
+        return false;
+        
+        return check(root->left,l,root)&&check(root->right,root,r);
     }
     bool isBST(Node* root) 
     {
         // Your code here
-        return check(root,INT_MIN,INT_MAX);
-        
+        Node*l=NULL, *r=NULL;
+       return check(root,l,r);
     }
 };
 
