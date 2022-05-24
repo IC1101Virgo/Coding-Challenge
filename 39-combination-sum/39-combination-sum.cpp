@@ -22,7 +22,7 @@ public:
         }
     }
     vector<vector<int>> combinationSum(vector<int>& A, int B) {
-        sort(A.begin(),A.end());
+      
         vector<vector<int>> res;
         vector<int> v;
         helper(A,B,res,v);
