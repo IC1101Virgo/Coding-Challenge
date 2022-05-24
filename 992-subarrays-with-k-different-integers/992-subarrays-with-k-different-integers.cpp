@@ -7,21 +7,21 @@ public:
         
         while(j<n){
             if(k>=0){
-                ++freq[nums[j]];
+                freq[nums[j]]++;
                 
                 if(freq[nums[j]]==1)
-                    --k;
+                    k--;
                 
-                ++j;
+                j++;
             }
             
             while(k<0){
-                --freq[nums[i]];
+                freq[nums[i]]--;
                 
                 if(freq[nums[i]]==0)
-                    ++k;
+                    k++;
                 
-                ++i;
+                i++;
             }
             
             count+=(j-i+1);
