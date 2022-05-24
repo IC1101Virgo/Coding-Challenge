@@ -30,7 +30,7 @@ class Solution
         if(root->data<minn || root->data>maxx)
         return 0;
         
-        return check(root->left,minn,root->data-1)&&check(root->right,root->data+1,maxx);
+        return check(root->left,minn,root->data)&&check(root->right,root->data,maxx);
     }
     bool isBST(Node* root) 
     {
