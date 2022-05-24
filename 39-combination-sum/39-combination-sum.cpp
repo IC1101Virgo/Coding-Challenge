@@ -1,27 +1,29 @@
 class Solution {
 public:
-    void helper(vector<int> &can, int t, vector<int> v, vector<vector<int>> & res, int ind){
-        if(ind==can.size()||t<0)
+    void helper(vector<int>& can, int t,vector<int> v,int in,int sum, vector<vector<int>> &res){
+        if(sum>t)
             return;
         
-        if(t==0)
-        {
+        if(sum==t){
             res.push_back(v);
             return;
         }
         
-       v.push_back(can[ind]);
-        helper(can,t-can[ind],v,res,ind);
-        v.pop_back();
-        helper(can,t,v,res,ind+1);
+        for(int i=in;i<can.size();i++){
+            v.push_back(can[i]);
+            sum += can[i];
+            helper(can, t, v, i, sum, res);
+            sum -= can[i];
+            v.pop_back();
+        }
+        
+        return;
     }
     vector<vector<int>> combinationSum(vector<int>& can, int t) {
-      
-        sort(can.begin(),can.end());
-        vector<vector<int>> res;
         vector<int> v;
+        vector<vector<int>> res;
         
-        helper(can,t,v,res,0);
+        helper(can,t,v,0,0,res);
         
         return res;
     }
