@@ -6,7 +6,7 @@ public:
         int i=0, j=0;
         int maxx=INT_MIN;
         
-        while(i<n && j<n){
+        while(j<n){
             if(k>=0 && nums[j++]==0)
                 k--;
             
