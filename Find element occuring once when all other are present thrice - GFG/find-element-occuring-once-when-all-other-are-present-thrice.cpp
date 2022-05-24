@@ -10,18 +10,17 @@ using namespace std;
 
 class Solution {
   public:
-    int singleElement(int arr[] ,int n) {
+    int singleElement(int nums[] ,int N) {
         // code here
-        unordered_map<int,int>mp;
-        
-        for(int i=0;i<n;i++){
-            mp[arr[i]]++;
-        }
-        
-        for(auto x:mp){
-            if(x.second==1)
-            return x.first;
-        }
+     int ones=0;
+     int twos=0;
+     
+     for(int i=0;i<N;i++){
+         ones=ones^nums[i] & ~twos;
+         twos=twos^nums[i] & ~ones;
+     }
+     
+     return ones;
     }
 };
 
