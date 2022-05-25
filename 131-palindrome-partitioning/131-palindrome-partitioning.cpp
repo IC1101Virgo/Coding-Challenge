@@ -1,9 +1,16 @@
 class Solution {
 public:
     bool palindrome(string str){
-        for(int i=0;i<str.length();i++){
-            if(str[i]!=str[str.length()-i-1])
-                return 0;
+        int i=0, j=str.length()-1;
+        
+        while(i<=j){
+            if(str[i]!=str[j])
+                return false;
+            
+            else{
+                i++;
+                j--;
+            }
         }
         
         return 1;
