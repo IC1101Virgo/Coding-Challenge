@@ -1,14 +1,9 @@
 class Solution {
 public:
-    bool palindrome(string str, int b, int e){
-        while(b<=e){
-            if(str[b]!=str[e])
+    bool palindrome(string str){
+        for(int i=0;i<str.length();i++){
+            if(str[i]!=str[str.length()-i-1])
                 return 0;
-            
-            else{
-                b++;
-                e--;
-            }
         }
         
         return 1;
@@ -20,10 +15,11 @@ public:
             return;
         }
         
+        string x="";
         for(int i=in;i<s.size();i++){
-            
-            if(palindrome(s,in,i)){
-                 string x=s.substr(in,i-in+1);
+            x+=s[i];
+            if(palindrome(x)){
+                
                 temp.push_back(x);
                 helper(s,res,temp,i+1);
                 temp.pop_back();
