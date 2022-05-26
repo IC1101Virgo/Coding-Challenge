@@ -14,11 +14,12 @@ public:
             if(sum==0)
                 l=i+1;
             
-            else if(m.find(sum)!=m.end()){
+             if(m.find(sum)!=m.end()){
                 l=max(l,i-m[sum]);
             }
             
-             else m[sum]=i;
+            if(m.find(sum)==m.end())
+             m[sum]=i;
         }
         
         return l;
