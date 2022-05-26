@@ -5,10 +5,10 @@ public:
         vector<vector<int>> res;
         sort(nums.begin(),nums.end());
         int n=nums.size();
+        set<vector<int>> st;
         
         for(int k=0;k<n;k++){
-            if(k>0 && nums[k]==nums[k-1]) continue;
-            
+           
             int i=k+1,j=n-1;
             
             while(i<j){
@@ -16,11 +16,8 @@ public:
                 
                 if(sum==0){
                     
-                    res.push_back({nums[i],nums[j],nums[k]});
-                    
-                    while(i<j && nums[i]==nums[i+1]) i++;
-                    while(i<j && nums[j]==nums[j-1]) j--;
-                    
+                    st.insert({nums[i],nums[j],nums[k]});
+
                     i++;
                     j--;
                 }
@@ -30,6 +27,9 @@ public:
                 else j--;
             }
         }
+        
+        for(auto i:st)
+            res.push_back(i);
         
         return res;
     }
