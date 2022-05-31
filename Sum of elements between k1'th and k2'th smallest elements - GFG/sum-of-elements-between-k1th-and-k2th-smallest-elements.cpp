@@ -22,10 +22,12 @@ class Solution{
        
         long long sum=0;
         
-        k2=k2-x;
-        while(--(k2)){
+        k2=k2-x-1;
+        
+        while(k2!=0){
             sum+=pq.top();
             pq.pop();
+            k2--;
         }
         
         return sum;
