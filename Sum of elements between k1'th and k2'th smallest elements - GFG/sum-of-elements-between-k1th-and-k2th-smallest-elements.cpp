@@ -15,10 +15,11 @@ class Solution{
         
         int x=k1;
         
-        while(--k1)
+        while(k1!=0){
         pq.pop();
-        
-        pq.pop();
+        k1--;
+        }
+       
         long long sum=0;
         
         k2=k2-x;
