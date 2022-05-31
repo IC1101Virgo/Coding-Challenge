@@ -9,7 +9,11 @@ public:
             maxheap.push({it.second,it.first}); //heap will be constructed on the basis of frequency
         s="";   
         while(!maxheap.empty()){
-            s+=string(maxheap.top().first,maxheap.top().second); //frequency times the character
+            int x=maxheap.top().first;
+            
+            for(int i=0;i<x;i++)
+                s+=maxheap.top().second;
+            //frequency times the character
             maxheap.pop();
         }
         return s;
