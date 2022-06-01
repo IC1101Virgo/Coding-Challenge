@@ -28,7 +28,7 @@ public:
                 else if(s[i-1]==p[j-1]||p[j-1]=='.')
                     dp[i][j]=dp[i-1][j-1];
                 
-               
+               else dp[i][j]=0;
             }
         }
         
