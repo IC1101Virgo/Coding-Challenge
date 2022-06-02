@@ -3,11 +3,11 @@ public:
     bool isMatch(string s, string p) {
         int n=s.size(), m=p.size();
         
-        vector<vector<bool>> dp(n+1,vector<bool>(m+1,0));
+        vector<vector<bool>> dp(n+1,vector<bool>(m+1,false));
         
         dp[0][0]=1;
         
-        for(int i=1;i<=m;i++){
+       for(int i=1;i<=m;i++){
             dp[0][i]=1;
            for(int j=1;j<=i;j++){
                if(p[j-1]!='*')
