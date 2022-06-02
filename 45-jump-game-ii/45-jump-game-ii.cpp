@@ -19,6 +19,6 @@ public:
             }
         }
         
-        return count;
+        return -1;
     }
 };
