@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numDecodings(string s) {
-        int n=s.length();
+        int n=s.size();
         
         vector<int> dp(n+1,0);
         
@@ -11,7 +11,7 @@ public:
             if(s[i]!='0'){
                 dp[i]=dp[i+1];
                 
-                if(i<n-1 && (s[i]=='1' || s[i]== '2' && s[i+1]<= '6'))
+                if( i<n-1 && (s[i]=='1' || s[i]=='2' && s[i+1]<='6'))
                     dp[i]+=dp[i+2];
             }
         }
