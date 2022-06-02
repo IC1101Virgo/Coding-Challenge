@@ -7,29 +7,26 @@ public:
         
         dp[0][0]=1;
         
-       
-        
         for(int j=1;j<=m;j++){
             if(p[j-1]=='*')
                 dp[0][j]=dp[0][j-2];
             
             else dp[0][j]=0;
-        } 
+        }
         
-        
-        for(int i=1; i<=n;i++){
+        for(int i=1;i<=n;i++){
             for(int j=1;j<=m;j++){
                 if(p[j-1]=='*'){
                     dp[i][j]=dp[i][j-2];
                     
-                    if(s[i-1]==p[j-2]|| p[j-2]=='.')
-                        dp[i][j]=dp[i-1][j]||dp[i][j];
+                    if(s[i-1]==p[j-2] || p[j-2]=='.')
+                        dp[i][j]=dp[i][j]||dp[i-1][j];
                 }
                 
-                else if(s[i-1]==p[j-1]||p[j-1]=='.')
+                else if(s[i-1]==p[j-1] || p[j-1]=='.')
                     dp[i][j]=dp[i-1][j-1];
                 
-               else dp[i][j]=0;
+                else dp[i][j]=0;
             }
         }
         
