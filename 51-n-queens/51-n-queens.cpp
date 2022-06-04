@@ -1,19 +1,50 @@
 class Solution {
 public:
-    bool helper(vector<string> v, int n, int row,int col){
-        if(row==0)
-            return true;
-        
-        for(int i=0;i<row;i++){
-            for(int j=0;j<n;j++){
-                if(v[i][j]=='Q'){
-                if(col==j|| abs(row-i)==1 && abs(col-j)==1|| abs(row-i)==abs(col-j))
-                    return false;
-                }
-            }
+    bool isSafe(int r, int c, vector<string>b){
+        int i=r, j = c;
+        int n= b.size();
+        while(i>=0 && i<n && j>=0 && j<n){
+            if(i!= r  && b[i][j] == 'Q')return 0;
+            i++;
         }
-        return true;
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if(i!=r  && b[i][j] == 'Q')return 0;
+            i--;
+        }
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if( j!=c && b[i][j] == 'Q')return 0;
+            j++;
+        }
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if( j!=c && b[i][j] == 'Q')return 0;
+            j--;
+        }
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if(i!= r && j!=c && b[i][j] == 'Q')return 0;
+            i++;j++;
+        }
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if(i!= r && j!=c && b[i][j] == 'Q')return 0;
+            i--;j--;
+        }
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if(i!= r && j!=c && b[i][j] == 'Q')return 0;
+            i++;j--;
+        }
+        i=r,j=c;
+        while(i>=0 && i<n && j>=0 && j<n){
+            if(i!= r && j!=c && b[i][j] == 'Q')return 0;
+            i--; j++;
+        }
+        return 1;
     }
+    
     void issafe(int n, vector<vector<string>> &res, vector<string> v, int row){
         if(row==n){
             res.push_back(v);
@@ -21,7 +52,7 @@ public:
         }
         
         for(int col=0;col<n;col++){
-            if(helper(v,n,row,col)){
+            if(isSafe(row,col,v)){
                 v[row][col]='Q';
                 issafe(n,res,v,row+1);
                 v[row][col]='.';
