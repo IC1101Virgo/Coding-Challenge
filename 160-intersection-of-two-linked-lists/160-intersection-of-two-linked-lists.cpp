@@ -16,6 +16,6 @@ public:
             b=b?b->next:headA;
         }
         
-        return a;
+        return b;
     }
 };
