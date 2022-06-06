@@ -7,7 +7,7 @@ public:
         
         for(int i=0;i<n;i++){
             for(int j=k;j>0;j--){
-                sell[j]=max(sell[j],p[i]+buy[j]);
+                sell[j]=max(sell[j],buy[j]+p[i]);
                 buy[j]=max(buy[j],sell[j-1]-p[i]);
             }
         }
