@@ -11,7 +11,7 @@ class Solution{
 public:
     bool isSubsetSum(vector<int>A, int B){
         int n=A.size();
-        vector<vector<int>>dp(n+1,vector<int>(B+1,0));
+        vector<vector<bool>>dp(n+1,vector<bool>(B+1,0));
 
     for(int i=0;i<=n;i++){
        for(int j=0;j<=B;j++){
