@@ -7,9 +7,9 @@ public:
         
         for(int i=0;i<nums.size();i++){
             if(mp.find(t-nums[i])!=mp.end()){
-                
-                v[1]=i+1;
                 v[0]=mp[t-nums[i]]+1;
+                v[1]=i+1;
+                
                 return v;
                 
             }
