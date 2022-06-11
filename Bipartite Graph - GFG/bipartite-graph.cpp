@@ -5,40 +5,36 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-	bool isBipartite(int V, vector<int>adj[]){
-	    // Code here
-	    vector<int> col(V,-1);
-	    queue<pair<int,int>> q;
-	    
-	    for(int i=0;i<V;i++){
-	        
-	        if(col[i]==-1){
-	        q.push({i,0});
-	        col[i]=0;
-	        
-	        while(!q.empty()){
-	            pair<int,int>p=q.front();
-	            q.pop();
-	            
-	            int v=p.first;
-	            int c=p.second;
-	            
-	            
-	            for(auto j:adj[v]){
-	                if(col[j]==c)
-	                return 0;
-	                
-	                if(col[j]==-1){
-	                    col[j]=c?0:1;
-	                    q.push({j,col[j]});
-	                }
-	            }
-	            
-	        }
-	        } 
-	    }
-	    
-	    return 1;
+    bool bipartiteBfs(int src, vector<int> adj[], int color[]) {
+    queue<int>q;
+    q.push(src); 
+    color[src] = 1; 
+    while(!q.empty()) {
+        int node = q.front(); 
+        q.pop();
+        
+        for(auto it : adj[node]) {
+            if(color[it] == -1) {
+                color[it] = 1 - color[node]; 
+                q.push(it); 
+            } else if(color[it] == color[node]) {
+                return false; 
+            }
+        }
+    }
+    return true; 
+}
+	bool isBipartite(int n, vector<int>adj[]){
+	    int color[n];
+    memset(color, -1, sizeof color); 
+    for(int i = 0;i<n;i++) {
+        if(color[i] == -1) {
+            if(!bipartiteBfs(i, adj, color)) {
+                return false;
+            }
+        }
+    }
+    return true; 
 	}
 
 };
