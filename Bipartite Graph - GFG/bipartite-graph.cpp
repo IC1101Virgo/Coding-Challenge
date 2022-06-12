@@ -24,17 +24,19 @@ public:
     }
     return true; 
 }
-	bool isBipartite(int n, vector<int>adj[]){
-	    int color[n];
-    memset(color, -1, sizeof color); 
-    for(int i = 0;i<n;i++) {
-        if(color[i] == -1) {
-            if(!bipartiteBfs(i, adj, color)) {
-                return false;
-            }
+	bool isBipartite(int A, vector<int>adj[]){
+	    // Code here
+	    int col[A];
+	    memset(col,-1,sizeof(col));
+	    
+	    for(int i=0;i<A;i++){
+        if(col[i]==-1){
+            if(!bipartiteBfs(i,adj,col))
+            return false;
         }
     }
-    return true; 
+    
+    return true;
 	}
 
 };
