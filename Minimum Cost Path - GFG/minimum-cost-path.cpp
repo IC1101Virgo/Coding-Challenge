@@ -13,11 +13,11 @@ class Solution
     int minimumCostPath(vector<vector<int>>& grid) 
     {
         // Code here
-        int n=grid.size();
+         int n=grid.size();
         
         int dp[1001][1001];
         
-       for(int i=0; i<1001; i++)
+        for(int i=0; i<1001; i++)
         for(int j=0; j<1001; j++)
             dp[i][j] = INT_MAX;
             
