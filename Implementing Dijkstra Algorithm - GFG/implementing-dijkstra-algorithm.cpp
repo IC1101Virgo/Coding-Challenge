@@ -11,30 +11,31 @@ class Solution
     vector <int> dijkstra(int v, vector<vector<int>> adj[], int s)
     {
         // Code here
-        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
-        vector<int> distto(v,INT_MAX);
+        vector<int> dist(v,INT_MAX);
         
-        distto[s]=0;
-        pq.push({0,s});
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        
+        dist[s]=0;
+        
+        pq.push({s,0});
         
         while(!pq.empty()){
-            int dist=pq.top().first;
-            int prev=pq.top().second;
-            
+            int prev=pq.top().first;
+            int distprev=pq.top().second;
             pq.pop();
             
             for(auto it:adj[prev]){
                 int next=it[0];
                 int nextdist=it[1];
                 
-                if(distto[next]>distto[prev]+nextdist){
-                    distto[next]=distto[prev]+nextdist;
-                    pq.push({distto[next],next});
+                if(dist[next]>dist[prev]+nextdist){
+                    dist[next]=dist[prev]+nextdist;
+                    pq.push({next,dist[next]});
                 }
             }
         }
         
-        return distto;
+        return dist;
     }
 };
 
