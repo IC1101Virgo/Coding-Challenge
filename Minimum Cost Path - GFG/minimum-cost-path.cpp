@@ -10,40 +10,38 @@ class Solution
     public:
     //Function to return the minimum cost to react at bottom
 	//right cell from top left cell.
+	typedef pair<int,pair<int,int>> pip;
+	
     int minimumCostPath(vector<vector<int>>& grid) 
     {
         // Code here
-         int n=grid.size();
+        int n=grid.size();
+        int dx[4]={-1,1,0,0};
+        int dy[4]={0,0,-1,1};
         
-        int dp[1001][1001];
+        vector<vector<int>> dp(n,vector<int>(n,INT_MAX));
         
-        for(int i=0; i<1001; i++)
-        for(int j=0; j<1001; j++)
-            dp[i][j] = INT_MAX;
-            
-            dp[0][0]=grid[0][0];
+        dp[0][0]=grid[0][0];
         
-        priority_queue<pair<int,pair<int,int>>,vector<pair<int,pair<int,int>>>,greater<pair<int,pair<int,int>>>>pq;
-        pq.push({grid[0][0],{0,0}});
+        priority_queue<pip,vector<pip>,greater<pip>> pq;
+        
+        pq.push({dp[0][0],{0,0}});
         
         while(!pq.empty()){
-            int dx[]={-1,1,0,0};
-            int dy[]={0,0,-1,1};
-            
-            pair<int,pair<int,int>> p=pq.top();
+            pip p=pq.top();
             pq.pop();
-            int i=p.second.first;
-            int j=p.second.second;
             
-            for(int k=0;k<4;k++){
-                int x=i+dx[k];
-                int y=j+dy[k];
+            int a=p.second.first;
+            int b=p.second.second;
+            
+            for(int i=0;i<4;i++){
+                int x=a+dx[i];
+                int y=b+dy[i];
                 
-                if(x>=0 && x<n && y>=0 && y<n && (dp[i][j]+grid[x][y]<dp[x][y])){
-                    dp[x][y]=dp[i][j]+grid[x][y];
+                if(x>=0 && x<n && y>=0 && y<n && dp[a][b]+grid[x][y]<dp[x][y]){
+                    dp[x][y]=dp[a][b]+grid[x][y];
                     pq.push({dp[x][y],{x,y}});
                 }
-                
             }
         }
         
