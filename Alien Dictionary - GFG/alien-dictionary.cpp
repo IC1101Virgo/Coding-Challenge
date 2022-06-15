@@ -6,41 +6,41 @@ using namespace std;
 
  // } Driver Code Ends
 // User function Template for C++
+void dfs(stack<int> &s, vector<int> &vis, vector<int> m[],int i){
+    vis[i]=1;
+    
+    for(auto edge:m[i]){
+        if(!vis[edge])
+        dfs(s,vis,m,edge);
+    }
+    
+    s.push(i);
+}
 
 class Solution{
     public:
-    void dfs(int src,vector<int> adj[],vector<bool> &vis,stack<int> &s)
-    {
-        vis[src]=true;
-        for(auto node:adj[src])
-        {
-            if(!vis[node])
-            dfs(node,adj,vis,s);
-        }
-        s.push(src);
-    }
     string findOrder(string dict[], int N, int K) {
         //code here
-        vector<int> mp[K];
-        for(int i=0;i<N-1;i++)
-        {
+        vector<int> m[K];
+        
+        for(int i=0;i<N-1;i++){
             int minlen=min(dict[i].size(),dict[i+1].size());
-            for(int j=0;j<minlen;j++)
-            {
-                if(dict[i][j]!=dict[i+1][j])
-                {
-                    mp[dict[i][j]-'a'].push_back(dict[i+1][j]-'a');
-                    break;
+            for(int j=0;j<minlen;j++){
+                if(dict[i][j]!=dict[i+1][j]){
+                m[dict[i][j]-'a'].push_back(dict[i+1][j]-'a');
+                break;
                 }
             }
         }
-        stack<int> s;
-        vector<bool> vis(K,false);
-        for(int i=0;i<K;i++)
-        {
+        
+        stack<int>s;
+        vector<int> vis(K,0);
+        
+        for(int i=0;i<K;i++){
             if(!vis[i])
-            dfs(i,mp,vis,s);
+            dfs(s,vis,m,i);
         }
+        
         string ans="";
         while(!s.empty())
         {
@@ -50,7 +50,6 @@ class Solution{
             ans.push_back(ch);
         }
         return ans;
-    
     }
 };
 
