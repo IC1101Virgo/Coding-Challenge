@@ -10,46 +10,38 @@
  */
 class Solution {
 public:
-     ListNode* mergelist(ListNode *l1, ListNode *l2)
-    {
-        ListNode *ptr = new ListNode(0);
-        ListNode *curr = ptr;
+    ListNode *mergelist(ListNode *l1,ListNode *l2){
+        ListNode *x=new ListNode(0);
+        ListNode *temp=x;
         
-        while(l1 != NULL && l2 != NULL)
-        {
-            if(l1->val <= l2->val)
-            {
-                curr -> next = l1;
-                l1 = l1 -> next;
+        while(l1!=NULL && l2!=NULL){
+            if(l1->val<=l2->val){
+                x->next=l1;
+                l1=l1->next;
             }
-            else
-            {
-                curr -> next = l2;
-                l2 = l2 -> next;
+            
+            else{
+                x->next=l2;
+                l2=l2->next;
             }
-        
-        curr = curr ->next;
-        
+            
+            x=x->next;
         }
         
-        //for unqual length linked list
-        
-        if(l1 != NULL)
-        {
-            curr -> next = l1;
-            l1 = l1->next;
+        if(l1!=NULL){
+            x->next=l1;
+            l1=l1->next;
         }
         
-        if(l2 != NULL)
-        {
-            curr -> next = l2;
-            l2 = l2 ->next;
+        if(l2!=NULL){
+            x->next=l2;
+            l2=l2->next;
         }
         
-        return ptr->next;
+        return temp->next;
     }
     ListNode* sortList(ListNode* head) {
-         if(head == NULL || head ->next == NULL)
+        if(head == NULL || head ->next == NULL)
             return head;
         
         
@@ -70,6 +62,6 @@ public:
         ListNode* l1 = sortList(head);    //left half recursive call
         ListNode* l2 = sortList(slow);    //right half recursive call
         
-        return mergelist(l1, l2);         //
+        return mergelist(l1, l2);         //mergelist Function call
     }
 };
