@@ -11,23 +11,24 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        if(!head || !head->next)
-            return head;
+        ListNode *curr=head;
         
-        ListNode *curr=head, *next=NULL, *prev=NULL;
-        
-        int count=0;
-        
-        while(count<2 && curr!=NULL){
-        next=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=next;
-            count++;
+        for(int i=0;i<2;i++){
+            if(!curr)
+                return head;
+            curr=curr->next;
         }
         
-        if(next!=NULL)
-        head->next= swapPairs(next);
+        ListNode *prev=NULL,*next=NULL,*temp=head;
+        
+        for(int i=0;i<2;i++){
+            next=temp->next;
+            temp->next=prev;
+            prev=temp;
+            temp=next;
+        }
+        
+        head->next=swapPairs(temp);
         
         return prev;
         
