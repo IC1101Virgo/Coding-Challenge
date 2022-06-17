@@ -10,20 +10,23 @@
  */
 class Solution {
 public:
-    void insert(ListNode* head, ListNode* node) {
-        while (head->next && head->next->val < node->val) head = head->next;
-        node->next = head->next;
-        head->next = node;
-    }
-    ListNode* insertionSortList(ListNode* head) {
-        ListNode* new_head = new ListNode(0);
-
-        while (head) {
-            ListNode* node = head;
-            head = head->next;
-            insert(new_head, node);
-        }
+    ListNode* insertionSortList(ListNode* A) {
+        ListNode *p=A->next;
+    
+    if(p==NULL)
+    return A;
+    
+    while(p!=NULL){
+        ListNode *p2=A;
         
-        return new_head->next;
+        while(p!=p2){
+            if(p2->val>p->val)
+            swap(p->val,p2->val);
+            p2=p2->next;
+        }
+        p=p->next;
+    }
+    
+    return A;
     }
 };
