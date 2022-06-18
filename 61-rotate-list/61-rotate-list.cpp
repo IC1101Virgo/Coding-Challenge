@@ -16,8 +16,11 @@ public:
         
         int l=1;
         ListNode *cur=head;
-        while(cur->next && l++)
+        
+        while(cur->next){
+            l++;
             cur=cur->next;
+        }
         
         cur->next=head;
         k=k%l;
