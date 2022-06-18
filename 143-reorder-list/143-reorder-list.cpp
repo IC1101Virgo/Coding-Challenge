@@ -14,28 +14,29 @@ public:
         if(!head || !head->next || !head->next->next)
             return;
         
-        stack <ListNode *> st;
-        
         ListNode *temp=head;
         int size=0;
+        stack<ListNode*> s;
         
-        while(temp!=NULL){
-            st.push(temp);
+        while(temp){
+            s.push(temp);
             size++;
             temp=temp->next;
         }
         
-        ListNode *ptr=head;
+        temp=head;
         
         for(int i=0;i<size/2;i++){
-            ListNode *ele=st.top();
-            st.pop();
-            ele->next=ptr->next;
-            ptr->next=ele;
-            ptr=ptr->next->next;
+            ListNode *ele=s.top();
+            s.pop();
+            ele->next=temp->next;
+            temp->next=ele;
+            temp=temp->next->next;
         }
         
-        ptr->next=NULL;
+        temp->next=NULL;
+        
+
         
     }
 };
