@@ -12,9 +12,10 @@ public:
                 st.push(i);
             
             else{
+               
                 if(!st.empty()) st.pop();
                 
-                if(!st.empty()) res=max(res,i-st.top());
+                 if(!st.empty()) res=max(res,i-st.top());
                 
                 else st.push(i);
             }
