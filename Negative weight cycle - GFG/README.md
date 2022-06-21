@@ -11,7 +11,7 @@
 {2,0,-3}}
 <strong>Output: </strong>1
 <strong>Explanation: </strong>The graph contains negative weight
-cycle as 0-&gt;1-&gt;2-&gt;0 with weight -1,-2,-3,-1.</span>
+cycle as 0-&gt;1-&gt;2-&gt;0 with weight -1,-2,-3.</span>
 </pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
