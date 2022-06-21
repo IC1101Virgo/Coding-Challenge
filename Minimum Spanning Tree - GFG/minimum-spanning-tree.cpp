@@ -12,6 +12,7 @@ class Solution
     int spanningTree(int n, vector<vector<int>> adj[])
     {
         // code here
+        // code here
         int key[n];
         int parent[n];
         bool mst[n];
