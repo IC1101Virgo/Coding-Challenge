@@ -29,7 +29,7 @@ public:
         inorder(root->right);
     }
     void recoverTree(TreeNode* root) {
-        if(!root)
+         if(!root)
             return;
         
         inorder(root);
