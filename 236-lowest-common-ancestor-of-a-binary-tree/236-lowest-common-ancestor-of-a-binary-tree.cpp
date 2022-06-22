@@ -21,7 +21,7 @@ public:
         
         if(x==p && y==q || x==q && y==p) return root;
         
-        return x!=NULL?x:y;
+       return x!=NULL?x:y;
         
     }
 };
