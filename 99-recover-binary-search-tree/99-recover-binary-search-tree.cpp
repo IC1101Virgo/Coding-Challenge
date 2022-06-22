@@ -11,12 +11,12 @@
  */
 class Solution {
 public:
-    TreeNode *node1=NULL, *node2=NULL, *prev=NULL;
-    void inorder(TreeNode *root){
+    TreeNode *prev=NULL,*node1=NULL,*node2=NULL;
+    void helper(TreeNode *root){
         if(!root)
             return;
         
-        inorder(root->left);
+        helper(root->left);
         
         if(prev!=NULL && root->val<prev->val){
             if(node1==NULL)
@@ -26,15 +26,12 @@ public:
         }
         
         prev=root;
-        inorder(root->right);
+        helper(root->right);
     }
     void recoverTree(TreeNode* root) {
-         if(!root)
+        if(!root)
             return;
-        
-        inorder(root);
-        
-        if(node1 && node2)
-            swap(node1->val,node2->val);
+        helper(root);
+        swap(node1->val,node2->val);
     }
 };
