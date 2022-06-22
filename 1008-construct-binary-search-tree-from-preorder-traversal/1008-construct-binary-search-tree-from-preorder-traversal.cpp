@@ -25,8 +25,9 @@ public:
     TreeNode* bstFromPreorder(vector<int>& preorder) {
         TreeNode *root=NULL;
         
-        for(auto x:preorder)
+        for(auto x:preorder){
             helper(root,x);
+        }
         
         return root;
     }
