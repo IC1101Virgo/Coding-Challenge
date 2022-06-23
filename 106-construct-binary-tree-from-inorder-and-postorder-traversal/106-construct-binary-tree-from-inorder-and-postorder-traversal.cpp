@@ -20,6 +20,7 @@ public:
    
     root->right=helper(pre,preidx,m,m[root->val]+1,end);
     root->left=helper(pre,preidx,m,start,m[root->val]-1);
+       
     
     
     return root;
