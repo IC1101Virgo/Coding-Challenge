@@ -8,18 +8,18 @@ class Solution
 {
     public:
     //Function to find whether a path exists from the source to destination.
-    void dfs(vector<vector<int>>& grid, int n, int i, int j, vector<vector<bool>> &vis){
-        if(i>=n || i<0 || j>=n || j<0 || vis[i][j]==1 || grid[i][j]==0)
+    void dfs(vector<vector<int>>& grid, int n, int m, int i, int j){
+        if(i>=n || i<0 || j>=m || j<0 || grid[i][j]==-1 || grid[i][j]==0)
         return;
         
-        vis[i][j]=1;
+        grid[i][j]=-1;
         
-        dfs(grid,n,i+1,j,vis);
-        dfs(grid,n,i-1,j,vis);
-        dfs(grid,n,i,j+1,vis);
-        dfs(grid,n,i,j-1,vis);
+        dfs(grid,n,m,i+1,j);
+        dfs(grid,n,m,i-1,j);
+        dfs(grid,n,m,i,j+1);
+        dfs(grid,n,m,i,j-1);
         
-        
+        return;
     }
     bool is_Possible(vector<vector<int>>& grid) 
     {
@@ -27,24 +27,23 @@ class Solution
         int n=grid.size(), m=grid[0].size();
         int x=-1,y=-1,dx=-1,dy=-1;
         
-        vector<vector<bool>> vis(n,vector<bool>(m,0));
-        
         for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                
+            for(int j=0;j<m;j++){
                 if(grid[i][j]==1){
                 x=i; y=j;
                 }
                 else if(grid[i][j]==2){
                 dx=i; dy=j;
                 }
-                
             }
         }
         
-        dfs(grid,n,x,y,vis);
+        dfs(grid,n,m,x,y);
         
-        return vis[dx][dy];
+        if(grid[dx][dy]==-1)
+        return 1;
+        
+        else return 0;
     }
 };
 
