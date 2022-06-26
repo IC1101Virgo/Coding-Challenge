@@ -10,11 +10,9 @@ class Solution {
     void dfs(vector<vector<char>>& grid, int x, int y){
         int n=grid.size(), m=grid[0].size();
         
-        if(x<0 || x>=n|| y<0 || y>=m)
+        if(x<0 || x>=n|| y<0 || y>=m || grid[x][y]!='1')
         return;
         
-        if(grid[x][y]!='1')
-        return;
         
         grid[x][y]=2;
         
