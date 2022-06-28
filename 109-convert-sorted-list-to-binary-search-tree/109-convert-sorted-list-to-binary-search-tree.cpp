@@ -21,26 +21,31 @@
  */
 class Solution {
 public:
-    TreeNode* helper(ListNode *head, ListNode *tail){
+    TreeNode *helper(ListNode* head,ListNode* tail){
         if(head==tail)
             return NULL;
         
-        ListNode*slow=head, *fast=head;
+        ListNode *fast=head;
+        ListNode *slow=head;
         
         while(fast!=tail && fast->next!=tail){
             slow=slow->next;
+            
             fast=fast->next->next;
         }
         
-        TreeNode* root=new TreeNode(slow->val);
+        TreeNode *root=new TreeNode(slow->val);
         
         root->left=helper(head,slow);
         root->right=helper(slow->next,tail);
         
         return root;
         
+        
     }
     TreeNode* sortedListToBST(ListNode* head) {
-        return helper(head, NULL);
+        
+        
+        return helper(head,NULL);
     }
 };
