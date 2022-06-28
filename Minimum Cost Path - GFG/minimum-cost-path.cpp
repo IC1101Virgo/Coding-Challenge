@@ -10,30 +10,33 @@ class Solution
     public:
     //Function to return the minimum cost to react at bottom
 	//right cell from top left cell.
-	typedef pair<int,pair<int,int>> pip;
+	typedef pair<int,pair<int,int>> pi;
+	
     int minimumCostPath(vector<vector<int>>& grid) 
     {
         // Code here
-       int n=grid.size();
-        int dx[4]={-1,1,0,0};
-        int dy[4]={0,0,-1,1};
+         int dx[4]={1,-1,0,0};
+        int dy[4]={0,0,1,-1};
         
+        int n=grid.size();
         vector<vector<int>> dp(n,vector<int>(n,INT_MAX));
         
+        priority_queue<pi,vector<pi>,greater<pi>> pq;
+        
         dp[0][0]=grid[0][0];
-        
-        priority_queue<pip,vector<pip>,greater<pip>> pq;
-        
         pq.push({dp[0][0],{0,0}});
         
+       
+        
         while(!pq.empty()){
-            pip p=pq.top();
+            auto prime=pq.top();
             pq.pop();
             
-            int a=p.second.first;
-            int b=p.second.second;
+            int a=prime.second.first;
+            int b=prime.second.second;
             
-            for(int i=0;i<4;i++){
+            
+             for(int i=0;i<4;i++){
                 int x=a+dx[i];
                 int y=b+dy[i];
                 
@@ -45,7 +48,6 @@ class Solution
         }
         
         return dp[n-1][n-1];
-        
     }
 };
 
