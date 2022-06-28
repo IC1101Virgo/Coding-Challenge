@@ -1,39 +1,41 @@
 class Solution {
 public:
-   bool dfs(vector<int> &vis, vector<int> &dfsvis, vector<int> adj[], int id){
-        vis[id]=1;
-        dfsvis[id]=1;
+    bool cycle(vector<vector<int>> &adj, vector<int> &vis, vector<int> &dfsvis, int i){
+        vis[i]=1;
+        dfsvis[i]=1;
         
-        for(auto edge:adj[id]){
-            if(vis[edge]==-1){
-                if(dfs(vis,dfsvis,adj,edge))
-                return true;
+        for(auto edge:adj[i]){
+            if(!vis[edge]){
+                if(cycle(adj,vis,dfsvis,edge))
+                    return 1;
             }
             
-            if(dfsvis[edge]==1)
-            return true;
+            else if(dfsvis[edge]==1)
+                return 1;
         }
         
-        dfsvis[id]=-1;
-        return false;
+        dfsvis[i]=0;
+        return 0;
     }
     
-    bool canFinish(int v, vector<vector<int>>& p) {
-       vector<int> adj[v];
+    bool canFinish(int num, vector<vector<int>>& pre) {
+        vector<vector<int>> adj(num);
         
-        for(auto x:p){
+        for(auto x:pre){
             adj[x[0]].push_back(x[1]);
+            //adj[x[1]].push_back(x[0]);
         }
-       vector<int> vis(v,-1);
-        vector<int> dfsvis(v,-1);
         
-        for(int i=0;i<v;i++){
-            if(vis[i]==-1){
-                if(dfs(vis,dfsvis,adj,i))
-                return false;
+        vector<int> vis(num,0);
+        vector<int> dfsvis(num,0);
+        
+        for(int i=0;i<num;i++){
+            if(!vis[i]){
+                if(cycle(adj,vis,dfsvis,i))
+                    return 0;
             }
         }
         
-        return true;
+        return 1;
     }
 };
