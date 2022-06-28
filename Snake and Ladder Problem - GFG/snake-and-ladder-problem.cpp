@@ -11,43 +11,38 @@ class Solution{
 public:
     int minThrow(int n, int arr[]){
         // code here
-        
-        unordered_map<int,int>m;
-        
-        for(int i=0;i<2*n;i+=2){
+       unordered_map<int,int>m;
+    
+    for(int i=0;i<2*n;i+=2){
             m[arr[i]]=arr[i+1];
         }
-        
-        queue<int> q;
-        vector<int> vis(31,0);
-        
-        q.push(1);
-        vis[1]=1;
-        int steps=0;
-        
-        while(!q.empty()){
-           int size=q.size();
-            
-            for(int i=0;i<size;i++){
-                int x=q.front();
-                q.pop();
-                
-                if(x==30) return steps;
-                
-                for(int j=1;j<=6;j++){
-                    if(x+j>30) break;
-                    
-                    if(vis[x+j]==0){
-                        vis[x+j]=1;
-                        if(m.find(x+j)==m.end())
-                        q.push(x+j);
-                        else q.push(m[x+j]);
-                    }
-                }
-            }
-            steps++;
+
+   
+    queue<int>q;
+    q.push(1);
+    vector<int>vis(101,0);
+    vis[1]=1;
+    int cnt=0;
+    while(!q.empty())
+    {   
+       
+        int size=q.size();
+        while(size--)
+        { 
+        int x=q.front(); q.pop();
+        if(x==30) return cnt;
+        for(int i=0;i<6;i++)
+        {    
+            int z=x+1+i;
+            if(m[z]) z=m[z];
+           
+           
+             if(vis[z]==0 ){ q.push(z); vis[z]=1;}
         }
-        return -1;
+        }
+       cnt++;
+    }
+    return -1;
     }
 };
 
