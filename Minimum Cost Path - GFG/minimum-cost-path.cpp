@@ -11,11 +11,10 @@ class Solution
     //Function to return the minimum cost to react at bottom
 	//right cell from top left cell.
 	typedef pair<int,pair<int,int>> pip;
-	
     int minimumCostPath(vector<vector<int>>& grid) 
     {
         // Code here
-        int n=grid.size();
+       int n=grid.size();
         int dx[4]={-1,1,0,0};
         int dy[4]={0,0,-1,1};
         
@@ -46,6 +45,7 @@ class Solution
         }
         
         return dp[n-1][n-1];
+        
     }
 };
 
