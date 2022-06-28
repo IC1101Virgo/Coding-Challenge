@@ -1,42 +1,47 @@
 class Solution {
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-         unordered_set<string>dict(wordList.begin(),wordList.end());
-        if(dict.find(endWord)==dict.end())
-        {
+        unordered_set<string>s(wordList.begin(),wordList.end());
+        
+        if(s.find(endWord)==s.end())
             return 0;
-        }
-        queue<string>q;
+        
+        queue<string> q;
+        
         q.push(beginWord);
+        
         int steps=1;
-        while(!q.empty())
-        {
+        
+        while(!q.empty()){
             int n=q.size();
-            while(n--)
-            {
-                string node=q.front();
+            
+            while(n--){
+                string p=q.front();
                 q.pop();
-                if(node==endWord)
-                {
+                
+                if(p==endWord){
                     return steps;
                 }
-                for(int i=0;i<node.length();i++)
-                {
-                    for(char c='a';c<='z';c++)
-                    {
-                        char x=node[i];
-                        node[i]=c;
-                        if(dict.find(node)!=dict.end())
-                        {
-                            dict.erase(node);
-                            q.push(node);
+                
+                for(int i=0;i<p.size();i++){
+                    for(char c='a';c<='z';c++){
+                        char x=p[i];
+                        p[i]=c;
+                        
+                        if(s.find(p)!=s.end()){
+                            s.erase(p);
+                            q.push(p);
                         }
-                        node[i]=x;
+                        
+                        p[i]=x;
                     }
+                   
                 }
+                
             }
-            steps++;
+             steps++;
         }
+        
         return 0;
     }
 };
