@@ -1,28 +1,23 @@
 class Solution {
 public:
      static bool compare(int a, int b){
-        string x=to_string(a);
-        string y=to_string(b);
+    string x=to_string(a), y=to_string(b);
+    
+    return (x+y)>(y+x);
+}
+    string largestNumber(vector<int>& A) {
+         sort(A.begin(),A.end(),compare);
+    
+    string res="";
+    int count=0;
+    
+    for(int i=0;i<A.size();i++){
+        res+=to_string(A[i]);
         
-        return (x+y)>(y+x);
-
+        if(A[i]==0)
+        count++;
     }
-    string largestNumber(vector<int>& nums) {
-        int n=nums.size();
-        
-        string s="";
-        
-        sort(nums.begin(),nums.end(),compare);
-        
-        int count=0;
-        
-        for(int i=0;i<n;i++){
-            s+=to_string(nums[i]);
-            
-            if(nums[i]==0)
-                count++;
-        }
-        
-        return count==n? "0":s;
+    
+    return count==A.size()? "0":res;
     }
 };
