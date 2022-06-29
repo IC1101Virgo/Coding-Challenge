@@ -9,8 +9,10 @@ public:
         // code here 
         string t = "";
 stack<int> st;
+
 for(int i=0;i<=s.length();i++){
 st.push(i+1);
+
 if(s.length()==i || s[i]=='I' ){
 while(!st.empty()){
 t += to_string(st.top());
@@ -19,6 +21,7 @@ st.pop();
 }
 }
 return t;
+       
         
     }
 };
