@@ -1,6 +1,6 @@
 class Solution {
 public:
-    static bool compare(int a, int b){
+     static bool compare(int a, int b){
         string x=to_string(a);
         string y=to_string(b);
         
