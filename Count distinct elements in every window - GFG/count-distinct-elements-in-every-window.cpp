@@ -8,27 +8,32 @@ using namespace std;
 
 class Solution{
   public:
-    vector <int> countDistinct (int A[], int n, int k)
+    vector <int> countDistinct (int A[], int n, int B)
     {
-        //code here.
-         unordered_map<int,int>um;
-        vector<int>v;
-        for(int i=0;i<k;i++){
-            um[A[i]]++;
-        }
-        v.push_back(um.size());
-        int j=0;
-        for(int i=k;i<n;i++){
-            um[A[j]]--;
-            um[A[i]]++;
-            if(um[A[j]]==0){
-                um.erase(A[j]);
-            }
-            j++;
-            v.push_back(um.size());
-        }
+        unordered_map<int,int> m;
+    
+    for(int i=0;i<B;i++)
+    m[A[i]]++;
+    
+    vector<int> v;
+    
+    v.push_back(m.size());
+    
+    int start=0;
+    for(int i=B;i<n;i++){
+        m[A[start]]--;
+        m[A[i]]++;
+        if(m[A[start]]==0)
+        m.erase(A[start]);
         
-        return v;
+        start++;
+        
+       
+        
+        v.push_back(m.size());
+    }
+    
+    return v;
     }
 };
 
