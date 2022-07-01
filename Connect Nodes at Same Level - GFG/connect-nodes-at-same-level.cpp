@@ -141,40 +141,35 @@ class Solution
     void connect(Node *root)
     {
        // Your Code Here
+       if(!root)
+       return;
        
-       
-       queue<Node*> q;
-       
+       queue<Node*>q;
        q.push(root);
        q.push(NULL);
+       
        while(!q.empty()){
-          
-               Node *prime=q.front();
-               if(!prime)
-               break;
-               
-               q.pop();
-               
-               prime->nextRight=q.front();
-               
-               if(prime->left) q.push(prime->left);
-               if(prime->right) q.push(prime->right);
-               
-               
-               
-               if(!q.front()){
-                   q.pop();
-                   q.push(NULL);
-               }
+           Node* x=q.front();
            
+           if(!x)
+           break;
+           
+           q.pop();
+           x->nextRight=q.front();
+           
+           if(x->left) q.push(x->left);
+           if(x->right) q.push(x->right);
+           
+           if(!q.front()){
+               q.pop();
+               q.push(NULL);
+           }
        }
        
        return;
     }    
       
 };
-
-
 
 
 
