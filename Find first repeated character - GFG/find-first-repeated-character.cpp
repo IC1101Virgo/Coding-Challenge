@@ -26,10 +26,10 @@ string firstRepChar(string s)
 
 unordered_map<char, int> m;
 for(int i=0;i<s.size();i++) {
-    m[s.at(i)]++;
-    if(m[s.at(i)]>1)
+    m[s[i]]++;
+    if(m[s[i]]>1)
 {
-str=s.at(i);
+str=s[i];
 return str;
 }
 
