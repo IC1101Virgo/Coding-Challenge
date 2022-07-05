@@ -10,28 +10,39 @@ class Solution
         string UncommonChars(string A, string B)
         {
             // code here
-            string s="";
-            int map2[256] = {0};
-            int map1[256] = {0};
-            
-            for(int i=0;i<A.size();i++)
-            {
-               map1[A[i]] = 1; 
-            }
-            
-            for(int i=0;i<B.size();i++)
-            {
-              map2[B[i]]=1;
-              
-            }
-            
-            for(int i=0;i<256;i++)
-            {
-                if(map1[i] ^ map2[i] ) s+=char(i);
-            }
-            
-            if(s.empty()) return "-1";
-            return s;
+           unordered_map<char,int>map1;
+           unordered_map<char,int>map2;
+           string ans="";
+           for(int i =0;i<B.size();i++){
+               
+               map1[B[i]]++;
+           }
+           for(int i=0;i<A.size();i++){
+               
+               map2[A[i]]++;
+           }
+           
+           for(int i=0;i<A.size();i++){
+               
+               if(map1.find(A[i])==map1.end()){
+                   ans=ans+A[i];
+                   map1.erase(map1[A[i]]);
+               }
+               
+           }
+           for(int i=0;i<B.size();i++){
+               
+               if(map2.find(B[i])==map2.end()){
+                   ans=ans+B[i];
+                   map2.erase(map2[B[i]]);
+               }
+               
+           }
+           if(ans.empty()){
+               return "-1";
+           }
+           sort(ans.begin(),ans.end());
+           return ans;
         }
 };
 
