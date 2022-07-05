@@ -1,5 +1,5 @@
 # Optimal Strategy For A Game
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">You are given an array <strong>A of size N</strong>. The array contains integers and is of <strong>even length</strong>. The elements of the array represent N <strong>coin </strong>of <strong>values V<sub>1</sub>, V<sub>2</sub>, ....V<sub>n</sub></strong>. You play against an opponent in an <strong>alternating </strong>way. </span></p>
 
