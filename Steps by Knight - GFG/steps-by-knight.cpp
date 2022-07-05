@@ -10,28 +10,68 @@ class Solution
 	int minStepToReachTarget(vector<int>&KnightPos,vector<int>&TargetPos,int N)
 	{
 	    // Code here
-	    if(KnightPos[0]==TargetPos[0] && KnightPos[1]==TargetPos[1]) return 0;
-	    int dx[8]={1,2,-2,-1,-1,-2,2,1};
-	    int dy[8]={-2,-1,1,2,-2,-1,1,2};
-	    vector<vector<int>>dis(N,vector<int>(N,0));
-	    queue<vector<int>>q;
-	    q.push({KnightPos[0]-1,KnightPos[1]-1});
-	    while(!q.empty())
-	    {
-	        auto v = q.front();
-	        q.pop();
-	        int x = v[0];
-	        int y=v[1];
-	        for(int i=0;i<8;i++)
-	        {
-	            if(x+dx[i]>=0 && x+dx[i]<N && y+dy[i]>=0 && y+dy[i]<N && dis[x+dx[i]][y+dy[i]]==0) 
-	             {
-	                 dis[x+dx[i]][y+dy[i]] = dis[x][y]+1;
-	                 q.push({x+dx[i],y+dy[i]});
-	             }
-	        }
-	    }
-	 return dis[TargetPos[0]-1][TargetPos[1]-1];  
+	    int A=N, B=N, C=KnightPos[0],D=KnightPos[1], E=TargetPos[0], F=TargetPos[1];
+	      int vis[A+1][B+1] = {0};
+
+    queue<pair<int,int>> q;
+
+    q.push({C,D});
+
+    vis[C][D] = 1;
+
+    int dx[] = {2,1,-1,-2,2,1,-2,-1};
+
+    int dy[] = {-1,-2,-2,-1,1,2,1,2};
+
+    int ans = 0;
+
+    while(!q.empty())
+
+    {
+
+        int n = q.size();
+
+        for(int i = 0; i < n; i++)
+
+        {
+
+            auto it = q.front();
+
+            q.pop();
+
+            int x = it.first;
+
+            int y = it.second;
+
+            if(x == E && y == F) return ans;
+
+            for(int i = 0; i < 8; i++)
+
+            {
+
+                int xx = x + dx[i];
+
+                int yy = y + dy[i];
+
+                if(xx > 0 && xx <= A && yy > 0 && yy <= B && !vis[xx][yy])
+
+                {
+
+                    q.push({xx,yy});
+
+                    vis[xx][yy] = 1;
+
+                }
+
+            }
+
+        }
+
+        ans++;
+
+    }
+
+    return -1;
 	}
 };
 
