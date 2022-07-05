@@ -1,19 +1,30 @@
 class Solution {
 public:
     int maxDistToClosest(vector<int>& seats) {
-         int len = seats.size(), i = 0, j, res = 0;
-        bool isNotTerminal;
-        while (i < len) {
-            // positioning i on the next 0 or end of the vector
-            while (i < len && seats[i]) i++;
-            j = i + 1;
-            // positioning i on the next 1 or end of the vector
-            while (j < len && !seats[j]) j++;
-            // checking if it is a terminal series of empty spots and updating res accordingly
-            isNotTerminal = i && j != len;
-            res = max(res, (j - i + isNotTerminal) / (1 + isNotTerminal));
-            i = j;
+                int longest = 0, beginning = 0, i = 0;
+        // count zeros in beginning
+        while (seats[i]==0)
+        {
+            beginning++;
+            i++;
         }
-        return res;
+        // find longest sequence of zeros in middle
+        int count = beginning;
+        for (; i<seats.size(); i++)
+        {
+            if (seats[i] == 0)
+                count++;
+            else
+            {
+                longest = std::max({count, longest});
+                count = 0;
+            }
+        }
+        // at the end, count = length of zeros in the end
+        // in the middle we have to divide the length in two to find maximum distance
+        longest = longest%2==0?longest/2:longest/2+1;
+        // return the largest distance
+        return std::max({longest, count, beginning});
+
     }
 };
