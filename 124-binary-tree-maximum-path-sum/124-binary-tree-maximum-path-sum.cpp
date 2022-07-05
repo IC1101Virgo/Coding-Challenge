@@ -13,22 +13,22 @@ class Solution {
 public:
     int maxs=INT_MIN;
     
-    int helper(TreeNode* root){
+    int helper(TreeNode *root){
         if(!root)
             return 0;
         
         int l=max(helper(root->left),0);
         int r=max(helper(root->right),0);
         
-        int price=root->val+l+r;
+        int temp=root->val+l+r;
         
-        maxs=max(maxs,price);
+        maxs=max(maxs,temp);
         
         return root->val+max(l,r);
     }
     int maxPathSum(TreeNode* root) {
         helper(root);
-        return maxs;
         
+        return maxs;
     }
 };
