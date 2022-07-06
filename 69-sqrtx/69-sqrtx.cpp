@@ -7,12 +7,12 @@ public:
         int lo=1, hi=x;
         
         while(lo<=hi){
-            int mid=lo+(hi-lo)/2;
+            long long mid=lo+(hi-lo)/2;
             
-            if(mid==x/mid)
+            if(mid*mid==x)
                 return mid;
             
-            else if(mid<x/mid)
+            if(mid*mid<x)
                 lo=mid+1;
             
             else hi=mid-1;
