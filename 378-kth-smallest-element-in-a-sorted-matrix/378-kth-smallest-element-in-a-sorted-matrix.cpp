@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int bs(vector<vector<int>>& mat, int mid){
-        int count = 0, n = mat.size(), i = n-1, j = 0;
+    int solve(vector<vector<int>>& mat, int mid){
+       int count = 0, n = mat.size(), i = n-1, j = 0;
         while(i >= 0 && j < n){
             if(mat[i][j] > mid) i--;
             else{
@@ -11,21 +11,20 @@ public:
         }
         return count;
     }
-    int kthSmallest(vector<vector<int>>& mat, int k) {
-      int n=mat.size();
+    int kthSmallest(vector<vector<int>>& matrix, int k) {
+        int n=matrix.size();
+        int lo=matrix[0][0], hi=matrix[n-1][n-1];
         
-        int start=mat[0][0], end=mat[n-1][n-1];
-        int mid;
-        while(start<end){
-            mid=start+(end-start)/2;
+        while(lo<hi){
+            int mid=lo+(hi-lo)/2;
             
-            int num=bs(mat,mid);
+            int pos=solve(matrix,mid);
             
-            if(num<k) start=mid+1;
+            if(pos<k) lo=mid+1;
             
-        else end=mid;
+            else hi=mid;
         }
         
-        return start;
+        return lo;
     }
 };
