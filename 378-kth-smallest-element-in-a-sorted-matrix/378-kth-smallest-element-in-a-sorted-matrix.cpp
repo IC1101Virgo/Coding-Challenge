@@ -1,16 +1,18 @@
 class Solution {
 public:
     int solve(vector<vector<int>>& mat, int mid){
-        int n=mat.size(), i=n-1,j=0;
+        int n=mat.size(), i=0,j=n-1;
         
         int count=0;
         
-        while(i>=0 && j<n){
-            if(mat[i][j]>mid) i--;
+        while(i<n && j>=0){
+            if(mat[i][j]>mid){
+                j--;
+            }
             
             else{
-                count+=(i+1);
-                j++;
+               count+=(j+1);
+                i++;
             }
         }
         
