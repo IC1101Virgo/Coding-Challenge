@@ -3,14 +3,14 @@ public:
     int canCompleteCircuit(vector<int>& A, vector<int>& B) {
         int n=A.size();
     
-    int have=0,give=0;
+    int have=0,req=0;
     
     for(int i=0;i<n;i++){
         have+=A[i];
-        give+=B[i];
+        req+=B[i];
     }
     
-    if(have<give)
+    if(have<req)
     return -1;
     
     int curr=0,start=0;
