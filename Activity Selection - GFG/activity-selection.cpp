@@ -11,7 +11,7 @@ class Solution
     //be performed by a single person.
     int activitySelection(vector<int> start, vector<int> end, int n)
     {
-        // Your code here-
+        // Your code here
         vector<pair<int,int>> v;
         
         for(int i=0;i<n;i++){
@@ -20,16 +20,18 @@ class Solution
         
         sort(v.begin(),v.end());
         
+        int ans=1;
         int curr=v[0].first;
-        int count=1;
-        for(int i=1;i<n;i++){
+        for(int i=1;i<v.size();i++){
             if(curr<v[i].second){
-                count++;
+                ans++;
+                
                 curr=v[i].first;
             }
         }
         
-        return count;
+        
+        return ans;
     }
 };
 
