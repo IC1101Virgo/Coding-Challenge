@@ -3,7 +3,7 @@ public:
     int majorityElement(vector<int>& nums) {
         int n=nums.size();
         
-       /* int count=0, ele=0;
+        int count=0, ele=0;
         
         for(int i=0;i<n;i++){
             
@@ -17,10 +17,8 @@ public:
             
         }
         
-        return ele; */
+        return ele; 
         
-        sort(nums.begin(),nums.end());
         
-        return nums[n/2];
     }
 };
