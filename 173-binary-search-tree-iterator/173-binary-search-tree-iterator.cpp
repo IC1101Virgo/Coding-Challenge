@@ -12,7 +12,7 @@
 class BSTIterator {
 public:
     stack<TreeNode*>s;
-    void helper(TreeNode* root){
+   void helper(TreeNode* root){
         while(root!=NULL){
             s.push(root);
             root=root->left;
@@ -32,7 +32,10 @@ public:
     }
     
     bool hasNext() {
-        return s.empty()?0:1;
+        if(!s.empty())
+            return 1;
+        return 0;
+        
     }
 };
 
