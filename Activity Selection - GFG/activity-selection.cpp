@@ -20,18 +20,17 @@ class Solution
         
         sort(v.begin(),v.end());
         
-        int ans=1;
         int curr=v[0].first;
+        int cnt=1;
+        
         for(int i=1;i<v.size();i++){
-            if(curr<v[i].second){
-                ans++;
-                
+            if(v[i].second>curr){
+                cnt++;
                 curr=v[i].first;
             }
         }
         
-        
-        return ans;
+        return cnt;
     }
 };
 
