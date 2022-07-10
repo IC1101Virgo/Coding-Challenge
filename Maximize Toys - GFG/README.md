@@ -1,5 +1,5 @@
 # Maximize Toys
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array <strong>arr[ ]</strong> of length <strong>N</strong> consisting cost of <strong>N</strong> toys and&nbsp;an integer <strong>K</strong> depicting the amount with you. Your task is to find maximum number of toys you can buy&nbsp;with <strong>K</strong> amount.&nbsp;</span></p>
 
