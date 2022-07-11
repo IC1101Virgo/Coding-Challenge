@@ -12,32 +12,34 @@
 class Solution {
 public:
     vector<vector<int>> res;
-    
-    void helper(TreeNode *root, int sum, vector<int> v, int t){
+    void helper(TreeNode *root, int t, int sum, vector<int>v){
         if(!root)
             return;
         
+         v.push_back(root->val);
         sum+=root->val;
-        v.push_back(root->val);
+       
         
-        if(!root->left && !root->right && sum==t){
+        if(!root->left && !root->right && sum==t)
+        {
             res.push_back(v);
-            
+            v.clear();
+            sum=0;
         }
         
-        helper(root->left,sum,v,t);
-         helper(root->right,sum,v,t);
+        helper(root->left,t,sum,v);
+        helper(root->right,t,sum,v);
     }
     vector<vector<int>> pathSum(TreeNode* root, int t) {
+        vector<int> v;
+        
         if(!root)
             return res;
         
-        vector<int> v;
-        
         int sum=0;
-        helper(root,sum,v,t);
+        
+        helper(root,t,sum,v);
         
         return res;
-        
     }
 };
