@@ -27,13 +27,13 @@ public:
             if(temp->left!=NULL){
                 s.push(temp->left);
                 temp->left=NULL;
-                continue;
+               continue;
             }
             
             if(temp->right!=NULL){
                 s.push(temp->right);
                 temp->right=NULL;
-                continue;
+               continue;
             }
             
             v.push_back(temp->val);
