@@ -23,7 +23,7 @@ public:
         while(!q.empty()){
             int n=q.size();
             double avgg=0;
-            int ns=n;
+            double ns=n;
             while(n--){
                 TreeNode *temp=q.front();
                 q.pop();
