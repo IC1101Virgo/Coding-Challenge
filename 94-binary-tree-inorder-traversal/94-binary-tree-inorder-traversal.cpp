@@ -17,33 +17,28 @@ public:
         if(!root)
             return v;
         
-        stack<TreeNode*> s;
+        stack<TreeNode*>s;
         
-        s.push(root);
         
-        while(!s.empty()){
-            TreeNode *temp=s.top();
-             
-            
-            if(temp->left!=NULL){
-                s.push(temp->left);
-                    temp->left=NULL;
-                continue;
+        
+        while(1){
+            while(root){
+                s.push(root);
+                root=root->left;
             }
             
-            v.push_back(temp->val);
+            if(s.empty())
+                break;
+            
+            root=s.top();
+            
+            
+            v.push_back(root->val);
             s.pop();
-            
-            if(temp->right!=NULL){
-                s.push(temp->right);
-                    temp->right=NULL;
-                continue;
-            }
-            
-            
-           
+            root=root->right;
         }
         
         return v;
+        
     }
 };
