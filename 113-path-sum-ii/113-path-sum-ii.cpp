@@ -23,8 +23,8 @@ public:
         if(!root->left && !root->right && sum==t)
         {
             res.push_back(v);
-            v.clear();
-            sum=0;
+           // v.clear();
+           // sum=0;
         }
         
         helper(root->left,t,sum,v);
