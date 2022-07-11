@@ -11,27 +11,26 @@
  */
 class Solution {
 public:
-   
- void helper(TreeNode *A, int val,int &sum){
-     if(!A)
-     return;
-     
-     val=(val*10+A->val);
-     if(!A->left && !A->right)
-     sum=(sum+val);
-     
-     helper(A->left,val,sum);
-     helper(A->right,val,sum);
-     
- }
-    int sumNumbers(TreeNode* A) {
-        if(!A)
-    return 0;
-    
-    int sum=0,val=0;
-    
-    helper(A,val,sum);
-    
-    return sum;
+    void helper(TreeNode *root, int &sum, int val){
+        if(!root)
+            return;
+        
+        val=val*10+root->val;
+        
+        if(!root->left && !root->right)
+            sum+=val;
+        
+        helper(root->left,sum,val);
+         helper(root->right,sum,val);
+    }
+    int sumNumbers(TreeNode* root) {
+        if(!root)
+            return 0;
+        
+        int sum=0,val=0;
+        
+        helper(root,sum,val);
+        
+        return sum;
     }
 };
