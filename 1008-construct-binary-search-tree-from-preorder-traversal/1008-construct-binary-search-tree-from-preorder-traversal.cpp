@@ -12,23 +12,23 @@
 class Solution {
 public:
     TreeNode *helper(TreeNode *&root, int ele){
-     if(root==NULL) 
-     return root=new TreeNode(ele);
-     
-     if(root->val>ele)
-     helper(root->left,ele);
-     
-     else helper(root->right,ele);
-     
-     return root;
- }
-    TreeNode* bstFromPreorder(vector<int>& A) {
-       TreeNode* root=NULL;
-    
-    for(auto x:A){
-        helper(root,x);
+        if(root==NULL)
+            return root=new TreeNode(ele);
+        
+        if(root->val>ele)
+            return helper(root->left,ele);
+        
+        else return helper(root->right,ele);
+        
+        return root;
     }
-    
-    return root;
+    TreeNode* bstFromPreorder(vector<int>& pr) {
+        TreeNode *root=NULL;
+        
+        for(auto x:pr){
+            helper(root,x);
+        }
+        
+        return root;
     }
 };
