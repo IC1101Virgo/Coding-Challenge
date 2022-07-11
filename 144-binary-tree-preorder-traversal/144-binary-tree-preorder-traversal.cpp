@@ -12,11 +12,14 @@
 class Solution {
 public:
     vector<int> preorderTraversal(TreeNode* root) {
-          stack<TreeNode*> s;
-        vector<int>v;
+         vector<int> v;
         
         if(!root)
             return v;
+        
+        stack<TreeNode*>s;
+        
+        
         
         while(1){
             while(root){
@@ -29,11 +32,11 @@ public:
                 break;
             
             root=s.top();
+            
+            
+            
             s.pop();
-            
             root=root->right;
-            
-            
         }
         
         return v;
