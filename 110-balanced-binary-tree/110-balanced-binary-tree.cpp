@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    int height(TreeNode* root){
+    int height(TreeNode *root){
         if(!root)
             return 0;
         
@@ -24,6 +24,6 @@ public:
         if(abs(height(root->left)-height(root->right))>1)
             return 0;
         
-        return isBalanced(root->left) && isBalanced(root->right);
+       return isBalanced(root->left)&& isBalanced(root->right);
     }
 };
