@@ -3,6 +3,8 @@
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif">Given a Binary Tree with all <strong>unique</strong> values and two nodes value,&nbsp;<strong>n1</strong> and <strong>n2</strong>. The task is to find the<strong>&nbsp;lowest common ancestor</strong> of the given two nodes. We may assume that either both n1 and n2 are present in the tree or none of them are&nbsp;present. </span></span></p>
 
+<p><span style="font-size:18px">LCA: It is the first common ancestor of both the nodes n1 and n2 from bottom of tree.</span></p>
+
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
 <pre><span style="font-size:18px"><strong>Input:
