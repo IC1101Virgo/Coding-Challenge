@@ -11,21 +11,23 @@ class Solution{
 public:
     void segregate0and1(int arr[], int n) {
         // code here
-        int low = 0;
-      int high = n-1;
-      while( low <= high){
-          if(arr[low] == 0){
-              low++;
-          }
-          else if(arr[high] == 1){
-              high--;
-          }
-          else{
-              swap(arr[low],arr[high]);
-              low++;
-              high--;
-          }
-      }
+        int i=0,j=n-1;
+        
+        while(i<j){
+            if(arr[i]==0)
+            i++;
+            
+           else if(arr[j]==1)
+            j--;
+            
+            else {
+                swap(arr[i],arr[j]);
+                i++;
+                j--;
+            }
+        }
+        
+        return;
     }
 };
 
