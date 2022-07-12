@@ -120,11 +120,12 @@ int countLeaves(Node* root)
   // Your code here
   if(!root)
   return 0;
-  
+  ans=countLeaves(root->left)+countLeaves(root->right);
   if(!root->left && !root->right)
-   return 1;
+   ans+=1;
   
-  return countLeaves(root->left)+countLeaves(root->right);
+  
+  return ans;
   
   
   
