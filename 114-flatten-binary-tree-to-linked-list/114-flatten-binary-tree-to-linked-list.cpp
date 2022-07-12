@@ -26,13 +26,16 @@ public:
             if(curr->right)
                 s.push(curr->right);
             
-            if(curr->left)
+            if(curr->left!=NULL)
                 s.push(curr->left);
             
-            if(!s.empty())
+            if(!s.empty()){
                 curr->right=s.top();
+            }
             
             curr->left=NULL;
+            
+            
         }
         
         return;
