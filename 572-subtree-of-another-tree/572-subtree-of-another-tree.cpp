@@ -11,26 +11,28 @@
  */
 class Solution {
 public:
-     bool isSametree(TreeNode* s, TreeNode* t){
-       if(!s || !t){
-           return s==NULL && t==NULL;
-       } 
-       else if(s->val == t->val){    
-           return isSametree(s->left,t->left) && isSametree(s->right,t->right);
-       }
-       else{
-           return false;
-       }
-   }
-   bool isSubtree(TreeNode* s, TreeNode* t) {
-         if(!s){
-             return false;
-         }   
-         else if(isSametree(s,t)){
-             return true;
-         }
-         else{
-             return isSubtree(s->left,t) || isSubtree(s->right,t);
-         }
+    bool helper(TreeNode* root, TreeNode* subRoot){
+       if(!root && !subRoot)
+            return 1;
+        
+        if(!root && subRoot)
+            return 0;
+        
+        if(root && !subRoot)
+            return 0;
+        
+        if(root->val!=subRoot->val)
+            return 0;
+        
+        return helper(root->left,subRoot->left)&&helper(root->right,subRoot->right);
+    }
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if(!root)
+            return 0;
+        
+        if(helper(root,subRoot))
+            return 1;
+        
+        return isSubtree(root->left,subRoot)||isSubtree(root->right,subRoot);
     }
 };
