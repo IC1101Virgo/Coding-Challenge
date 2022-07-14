@@ -11,13 +11,12 @@ class Solution{
 public:
     int minThrow(int n, int arr[]){
         // code here
-        unordered_map<int,int> m;
+        unordered_map<int,int>m;
         
         for(int i=0;i<2*n;i+=2){
             m[arr[i]]=arr[i+1];
         }
-        
-        vector<int> vis(31,0);
+        vector<bool>vis(101,0);
         queue<int> q;
         
         q.push(1);
@@ -26,6 +25,7 @@ public:
         
         while(!q.empty()){
             int size=q.size();
+            
             while(size--){
                 int temp=q.front();
                 q.pop();
@@ -36,14 +36,15 @@ public:
                 for(int i=1;i<=6;i++){
                     int z=temp+i;
                     
-                    if(m.find(z)!=m.end())
+                    if(m[z])
                     z=m[z];
                     
-                    if(vis[z]==0)
-                    q.push(z);
+                    if(vis[z]==0){
+                        vis[z]=1;
+                        q.push(z);
+                    }
                 }
             }
-            
             cnt++;
         }
         
