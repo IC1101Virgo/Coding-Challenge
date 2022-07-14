@@ -5,41 +5,43 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-    bool isbipartite(vector<int> &col, vector<int> adj[], int i){
-    queue<int> q;
-    q.push(i);
-    col[i]=1;
-    
-    while(!q.empty()){
-        int node=q.front();
-        q.pop();
+    bool helper(vector<int>adj[], vector<int> &col, int ind){
         
-        for(auto id:adj[node]){
+        queue<int> q;
+        q.push(ind);
+        col[ind]=1;;
+        
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
             
-            if(col[id]==-1){
-                col[id]=1-col[node];
-                q.push(id);
+            for(auto x:adj[node]){
+                
+                if(col[x]==-1){
+                    col[x]=1-col[node];
+                    q.push(x);
+                }
+                
+                else if(col[x]==col[node])
+                return 0;
             }
-            
-            else if(col[id]==col[node])
-            return false;
         }
+        
+        return 1;
     }
-    
-    return true;
-}
-	bool isBipartite(int A, vector<int>adj[]){
+	bool isBipartite(int v, vector<int>adj[]){
 	    // Code here
-	    vector<int> col(A,-1);
 	    
-	    for(int i=0;i<A;i++){
-        if(col[i]==-1){
-            if(!isbipartite(col,adj,i))
-            return 0;
-        }
-    }
-    
-    return 1;
+	    vector<int> col(v,-1);
+	    
+	    for(int i=0;i<v;i++){
+	        if(col[i]==-1){
+	            if(!helper(adj,col,i))
+	            return 0;
+	        }
+	    }
+	    
+	    return 1;
 	}
 
 };
