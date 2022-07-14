@@ -11,7 +11,6 @@ class Solution
     //Function to return the minimum cost to react at bottom
 	//right cell from top left cell.
 	typedef pair<int,pair<int,int>> pi;
-	
     int minimumCostPath(vector<vector<int>>& grid) 
     {
         // Code here
