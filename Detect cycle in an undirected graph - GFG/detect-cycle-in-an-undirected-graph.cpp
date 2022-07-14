@@ -6,38 +6,35 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
-    bool dfs(vector<int> adj[], vector<int> vis, int i, int par){
-        vis[i]=1;
+    bool helper(vector<int> adj[], vector<int> &vis, int idx, int par){
+        vis[idx]=1;
         
-        for(auto edge:adj[i]){
-            if(vis[edge]==0){
-                if(dfs(adj,vis,edge,i))
-                return true;
+        for(auto x:adj[idx]){
+            if(!vis[x]){
+                if(helper(adj,vis,x,idx))
+                return 1;
             }
             
-            else{
-            if(edge!=par)
-            return true;
-            }
-        }
-        
-        return false;
-    }
-    bool isCycle(int v, vector<int> adj[]) {
-        // Code here
-        vector<int> vis(v,0);
-        bool x=0;
-        
-        for(int i=0;i<v;i++){
-            if(vis[i]==0){
-           x= dfs(adj,vis,i,-1);
-            }
-            
-            if(x==1)
+           else if(par!=x)
             return 1;
         }
         
-        return false;
+        return 0;
+        
+    }
+    bool isCycle(int v, vector<int> adj[]) {
+        // Code here
+        
+        vector<int> vis(v,0);
+        
+        for(int i=0;i<v;i++){
+           if(!vis[i]){
+           if(helper(adj,vis,i,-1))
+           return 1;
+           }
+        }
+        
+        return 0;
     }
 };
 
