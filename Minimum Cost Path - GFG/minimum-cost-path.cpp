@@ -10,22 +10,21 @@ class Solution
     public:
     //Function to return the minimum cost to react at bottom
 	//right cell from top left cell.
-	typedef pair<int,pair<int,int>> pi;
+	typedef pair<int,pair<int,int>> pip;
     int minimumCostPath(vector<vector<int>>& grid) 
     {
         // Code here
-         int dx[4]={1,-1,0,0};
+        int dx[4]={1,-1,0,0};
         int dy[4]={0,0,1,-1};
         
         int n=grid.size();
+        priority_queue<pip,vector<pip>,greater<pip>> pq;
+        
         vector<vector<int>> dp(n,vector<int>(n,INT_MAX));
         
-        priority_queue<pi,vector<pi>,greater<pi>> pq;
-        
         dp[0][0]=grid[0][0];
-        pq.push({dp[0][0],{0,0}});
         
-       
+        pq.push({dp[0][0],{0,0}});
         
         while(!pq.empty()){
             auto prime=pq.top();
@@ -34,13 +33,13 @@ class Solution
             int a=prime.second.first;
             int b=prime.second.second;
             
-            
-             for(int i=0;i<4;i++){
+            for(int i=0;i<4;i++){
                 int x=a+dx[i];
                 int y=b+dy[i];
                 
-                if(x>=0 && x<n && y>=0 && y<n && dp[a][b]+grid[x][y]<dp[x][y]){
-                    dp[x][y]=dp[a][b]+grid[x][y];
+                if(x>=0 && x<n && y>=0 && y<n && dp[a][b]+grid[x][y]<dp[x][y])
+                {
+                    dp[x][y]=grid[x][y]+dp[a][b];
                     pq.push({dp[x][y],{x,y}});
                 }
             }
