@@ -17,9 +17,8 @@ public:
         dfsvis[i]=0;
         return 0;
     }
-    
     bool canFinish(int num, vector<vector<int>>& pre) {
-        vector<vector<int>> adj(num);
+         vector<vector<int>> adj(num);
         
         for(auto x:pre){
             adj[x[0]].push_back(x[1]);
