@@ -3,9 +3,9 @@ public:
     int dx[4]={1,-1,0,0};
     int dy[4]={0,0,1,-1};
     
-    int dfs(vector<vector<char>>& grid, int i ,int j, int n, int m){
+    void dfs(vector<vector<char>>& grid, int i ,int j, int n, int m){
         if(i<0 || i>=n || j<0 || j>=m || grid[i][j]!='1')
-            return 0;
+            return ;
         
         grid[i][j]='2';
         
@@ -15,7 +15,7 @@ public:
              dfs(grid,x,y,n,m);
         }
         
-        return 1;
+        return ;
     }
     int numIslands(vector<vector<char>>& grid) {
         int n=grid.size(), m=grid[0].size();
@@ -23,9 +23,10 @@ public:
         
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                //if(grid[i][j]=='1')
-                    if(dfs(grid,i,j,n,m))
+                if(grid[i][j]=='1'){
+                    dfs(grid,i,j,n,m);
                         maxv++;
+                }
             }
         }
         
