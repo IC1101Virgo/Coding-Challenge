@@ -15,31 +15,24 @@ public:
             return head;
         
         int l=1;
+        ListNode *curr=head;
         
-        ListNode *temp=head;
-        
-        while(temp->next){
+        while(curr->next){
             l++;
-            temp=temp->next;
+            curr=curr->next;
         }
-        temp->next=head;
         
-        //temp=head;
+        curr->next=head;
         
-        
-            k=k%l;
-        
+        k=k%l;
         k=l-k;
         
-        while(k--){
-            temp=temp->next;
-        }
+        while(k--)
+            curr=curr->next;
         
-        ListNode *x=temp->next;
-        temp->next=NULL;
+        head=curr->next;
+        curr->next=NULL;
         
-        return x;
-        
-        
+        return head;
     }
 };
