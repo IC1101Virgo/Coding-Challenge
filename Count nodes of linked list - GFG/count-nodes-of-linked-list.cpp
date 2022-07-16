@@ -31,9 +31,9 @@ class Solution
     int getCount(struct Node* head){
     
         //Code 
-        int l=0;
+        int l=1;
         
-        while(head){
+        while(head->next){
             l++;
             head=head->next;
         }
