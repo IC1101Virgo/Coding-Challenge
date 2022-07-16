@@ -79,34 +79,30 @@ class Solution
     //Function to remove a loop in the linked list.
     void removeLoop(Node* head)
     {
-        // code here
-        // just remove the loop without losing any nodes
-        
-        Node *slow=head, *fast=head, *temp=NULL;
+        Node *fast=head, *slow=head ,*temp=NULL;
         
         while(fast && fast->next){
             temp=slow;
             slow=slow->next;
             fast=fast->next->next;
             
-            if(slow==fast){
-                break;
-            }
+            if(slow==fast)
+            break;
         }
         
-        if(slow!=fast) return;
+        if(slow!=fast)
+        return;
+        
         
         fast=head;
-        
-        while(slow!=fast)
-        {
+        while(slow!=fast){
             temp=slow;
             slow=slow->next;
             fast=fast->next;
         }
         
         temp->next=NULL;
-        
+        return;
     }
 };
 
