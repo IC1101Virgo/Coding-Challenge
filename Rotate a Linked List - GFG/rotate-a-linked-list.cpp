@@ -49,14 +49,14 @@ class Solution
         curr->next=head;
        
         
-        Node* temp=head;
+        curr=head;
         while(k!=1){
-            temp=temp->next;
+            curr=curr->next;
             k--;
         }
         
-        head=temp->next;
-        temp->next=NULL;
+        head=curr->next;
+        curr->next=NULL;
         
         return head;
         
