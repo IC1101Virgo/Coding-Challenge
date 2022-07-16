@@ -11,15 +11,15 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        ListNode *curr=head;
+       ListNode *curr=head;
         
         for(int i=0;i<2;i++){
-            if(!curr)
+            if(curr==NULL)
                 return head;
             curr=curr->next;
         }
         
-        ListNode *prev=NULL,*next=NULL,*temp=head;
+        ListNode *next=NULL, *prev=NULL, *temp=head;
         
         for(int i=0;i<2;i++){
             next=temp->next;
@@ -31,6 +31,5 @@ public:
         head->next=swapPairs(temp);
         
         return prev;
-        
     }
 };
