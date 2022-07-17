@@ -19,10 +19,10 @@ public:
 };
 */
 
+unordered_map<Node*,Node*> mp;
+
 class Solution {
 public:
-    unordered_map<Node*,Node*>mp;
-    
     Node* cloneGraph(Node* node) {
         if(!node)
             return NULL;
@@ -39,17 +39,3 @@ public:
         return clone;
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
