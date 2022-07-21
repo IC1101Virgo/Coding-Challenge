@@ -15,14 +15,14 @@ public:
      for(int i=1;i<=n;i++){
             for(int j=0;j<i;j++){
                 
-                if(dp[j]==1){
+               if(dp[j]==1){
                     string word=A.substr(j,i-j);
                         
                         if(di.find(word)!=di.end()){
                             dp[i]=1;
                    
                         }
-                }
+               }
             }
         }
     
