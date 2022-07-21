@@ -23,7 +23,7 @@ public:
             return dp[i][j];
         
         if(ispal(s,i,j)){
-            dp[i][j]=0;
+            //dp[i][j]=0;
                 return 0;
         }
         
