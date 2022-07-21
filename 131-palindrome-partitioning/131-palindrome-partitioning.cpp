@@ -1,11 +1,11 @@
 class Solution {
 public:
-    bool palindrome(string str){
-        int i=0, j=str.length()-1;
+    bool ispal(string str){
+        int i=0, j=str.size()-1;
         
         while(i<=j){
             if(str[i]!=str[j])
-                return false;
+                return 0;
             
             else{
                 i++;
@@ -15,30 +15,35 @@ public:
         
         return 1;
     }
-    
-    void helper(string s, vector<vector<string>> &res, vector<string> temp, int in){
-        if(in==s.size()){
+    void solve(string s, vector<string> temp, vector<vector<string>> &res, int in){
+        int n=s.size();
+        
+        if(in==n){
             res.push_back(temp);
             return;
         }
         
         string x="";
-        for(int i=in;i<s.size();i++){
+        
+        for(int i=in;i<n;i++){
+            
             x+=s[i];
-            if(palindrome(x)){
-                
+            
+            if(ispal(x)){
                 temp.push_back(x);
-                helper(s,res,temp,i+1);
+                solve(s,temp,res,i+1);
                 temp.pop_back();
             }
         }
     }
     vector<vector<string>> partition(string s) {
+       // int n=s.size();
         
-        vector<vector<string>> res;
         vector<string> temp;
+        vector<vector<string>> res;
+        //string x="";
         
-        helper(s,res,temp,0);
+        solve(s,temp,res,0);
         
         return res;
     }
