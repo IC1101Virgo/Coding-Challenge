@@ -3,7 +3,7 @@ public:
     int maxProfit(vector<int>& p) {
         int n=p.size();
         
-        int fb=INT_MAX,fp=INT_MIN, sb=INT_MAX, sp=INT_MIN;
+        int fb=INT_MAX, fp=INT_MIN, sb=INT_MAX, sp=INT_MIN;
         
         for(int i=0;i<n;i++){
             fb=min(fb,p[i]);
