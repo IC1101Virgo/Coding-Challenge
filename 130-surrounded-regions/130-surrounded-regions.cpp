@@ -1,5 +1,8 @@
 class Solution {
 public:
+    int dx[4]={1,-1,0,0};
+    int dy[4]={0,0,1,-1};
+    
     void dfs(vector<vector<char>>& board, int i, int j){
         int n=board.size(), m=board[0].size();
         
@@ -8,10 +11,12 @@ public:
         
         board[i][j]='a';
         
-        dfs(board,i+1,j);
-        dfs(board,i-1,j);
-        dfs(board,i,j+1);
-        dfs(board,i,j-1);
+        for(int k=0;k<4;k++)
+        {
+            int x=i+dx[k];
+            int y=j+dy[k];
+            dfs(board,x,y);
+        }
     }
     void solve(vector<vector<char>>& board) {
         int n=board.size(), m=board[0].size();
