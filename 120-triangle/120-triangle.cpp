@@ -1,25 +1,24 @@
 class Solution {
 public:
-    
-    int helper(vector<vector<int>>& tri, int i, int j, vector<vector<int>> &dp){
-        if(i==tri.size())
+    int helper(vector<vector<int>>& t,vector<vector<int>>& dp,int i, int j){
+        int n=t.size();
+        
+        if(i>=n)
             return 0;
         
-        if(dp[i][j]!=-1) return dp[i][j];
+        if(dp[i][j]!=-1)
+            return dp[i][j];
         
-        else
-           return dp[i][j]=tri[i][j]+min(helper(tri,i+1,j,dp),helper(tri,i+1,j+1,dp));
+        int a=t[i][j]+helper(t,dp,i+1,j), b=t[i][j]+helper(t,dp,i+1,j+1);
         
-        
+        return dp[i][j]=min(a,b);
     }
-    int minimumTotal(vector<vector<int>>& tri) {
-        int h=tri.size();
-        int n=h;
+    int minimumTotal(vector<vector<int>>& t) {
+        int n=t.size();
         
-        vector<vector<int>> dp(h,vector<int>(n,-1));
+        vector<vector<int>> dp(n,vector<int>(n,-1));
+       // dp[0][0]=t[0][0];
         
-        return helper(tri,0,0,dp);
-        
-        
+        return helper(t,dp,0,0);
     }
 };
