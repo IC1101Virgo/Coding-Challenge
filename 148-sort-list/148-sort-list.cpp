@@ -29,14 +29,16 @@ public:
             x=x->next;
         }
         
-        if(a!=NULL){
+        while(a!=NULL){
             x->next=a;
             a=a->next;
+            x=x->next;
         }
         
-        if(b!=NULL){
+        while(b!=NULL){
             x->next=b;
             b=b->next;
+            x=x->next;
         }
         
         return temp->next;
