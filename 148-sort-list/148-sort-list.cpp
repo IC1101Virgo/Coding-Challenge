@@ -10,38 +10,39 @@
  */
 class Solution {
 public:
-    ListNode *mergelist(ListNode *l1,ListNode *l2){
+    ListNode* merge(ListNode *a, ListNode *b){
         ListNode *x=new ListNode(0);
         ListNode *temp=x;
         
-        while(l1!=NULL && l2!=NULL){
-            if(l1->val<=l2->val){
-                x->next=l1;
-                l1=l1->next;
+        while(a!=NULL && b!=NULL){
+            if(a->val<=b->val)
+            {
+                x->next=a;
+                a=a->next;
             }
             
             else{
-                x->next=l2;
-                l2=l2->next;
+                x->next=b;
+                b=b->next;
             }
             
             x=x->next;
         }
         
-        if(l1!=NULL){
-            x->next=l1;
-            l1=l1->next;
+        if(a!=NULL){
+            x->next=a;
+            a=a->next;
         }
         
-        if(l2!=NULL){
-            x->next=l2;
-            l2=l2->next;
+        if(b!=NULL){
+            x->next=b;
+            b=b->next;
         }
         
         return temp->next;
     }
     ListNode* sortList(ListNode* head) {
-        if(head == NULL || head ->next == NULL)
+         if(head == NULL || head ->next == NULL)
             return head;
         
         
@@ -62,6 +63,6 @@ public:
         ListNode* l1 = sortList(head);    //left half recursive call
         ListNode* l2 = sortList(slow);    //right half recursive call
         
-        return mergelist(l1, l2);         //mergelist Function call
+        return merge(l1, l2);     
     }
 };
