@@ -1,41 +1,47 @@
 class Solution {
 public:
-    string minWindow(string s, string p) {
-         int n=s.length(), ml=p.length();
+    string minWindow(string s, string t) {
+        int n=s.size(), mt=t.size();
         
-        unordered_map<char,int>mpp;
+        unordered_map<int,int> m;
         
-        for(int i=0;i<ml;i++)
-        mpp[p[i]]++;
+        for(auto x:t)
+            m[x]++;
         
-        int count=mpp.size();
-       int j=0,i=0,start;
-       string ans="";
-       int len=INT_MAX;
-       
-       while(j<s.length()){
-           
-           if(mpp.find(s[j])!=mpp.end()){
-               mpp[s[j]]--;
-               if(mpp[s[j]]==0){
-                   count--;
-               }
-           }
-           
-           while(count==0){
-               if(len>j-i+1){
-                   len=j-i+1;
-                   ans=s.substr(i,len);
-               }
-               if(mpp.find(s[i])!=mpp.end()){
-                   mpp[s[i]]++;
-                   if(mpp[s[i]]==1)count++;
-               }
-               i++;
-           }
-           
-           j++;
-       }
-       return len!=INT_MAX ? ans : "" ;
+        int cnt=m.size();
+        int i=0, j=0;
+        
+        int len=INT_MAX;
+        string ans="";
+        
+        while(j<n){
+            if(m.find(s[j])!=m.end()){
+                m[s[j]]--;
+                
+                if(m[s[j]]==0)
+                    cnt--;
+                
+              //  j++;
+            }
+            
+            while(cnt==0){
+                if(len>j-i+1){
+                    len=j-i+1;
+                    ans=s.substr(i,len);
+                }
+                
+                if(m.find(s[i])!=m.end()){
+                    m[s[i]]++;
+                    
+                    if(m[s[i]]==1)
+                        cnt++;
+                }
+                i++;
+            }
+            
+            j++;
+        }
+        
+        return len==INT_MAX?"":ans;
     }
 };
