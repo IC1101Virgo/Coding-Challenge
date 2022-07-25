@@ -1,37 +1,42 @@
 class Solution {
 public:
-    int helper(vector<int> &nums, int k){
-        unordered_map<int,int> freq;
-        int count=0;
+    int helper(vector<int>& nums, int k){
         int n=nums.size();
-        
+        unordered_map<int,int> m;
+        int cnt=0;
         int i=0,j=0;
         
         while(i<n && j<n){
             if(k>=0){
-                freq[nums[i]]++;
+                m[nums[i]]++;
                 
-                if(freq[nums[i]]==1)
+                if(m[nums[i]]==1)
                     k--;
                 
                 i++;
             }
             
             while(k<0){
-                freq[nums[j]]--;
+                m[nums[j]]--;
                 
-                if(freq[nums[j]]==0)
-                    k++;
+                if(m[nums[j]]==0)
+                k++;
                 
                 j++;
+                
             }
             
-            count+=(i-j+1);
+            cnt+=(i-j+1);
         }
         
-        return count;
+        return cnt;
     }
     int subarraysWithKDistinct(vector<int>& nums, int k) {
-        return helper(nums, k)-helper(nums,k-1);
+        int n=nums.size();
+        
+        if(n==0)
+            return n;
+        
+        return (helper(nums,k)-helper(nums,k-1));
     }
 };
