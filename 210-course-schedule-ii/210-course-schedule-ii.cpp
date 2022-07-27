@@ -1,48 +1,75 @@
 class Solution {
 public:
-    bool kahn(int n, vector<int> adj[], vector<int> &indegree, vector<int> &ans){
-        queue<int>q;
+    bool iscycle(vector<int> &vis, vector<int> &dfsvis, int i, vector<int> adj[]){
+        vis[i]=1;
+        dfsvis[i]=1;
         
-        for(int i=0;i<n;i++){
-            if(indegree[i]==0)
-                q.push(i);
-        }
-        
-        int count=0;
-        
-        while(!q.empty()){
-            int x=q.front();
-            q.pop();
-            
-            for(auto edge:adj[x]){
-                indegree[edge]--;
-                
-                if(indegree[edge]==0)
-                    q.push(edge);
+        for(auto edge:adj[i]){
+            if(!vis[edge]){
+                if(iscycle(vis,dfsvis,edge,adj))
+                    return true;
             }
-            ans.push_back(x);
-            count++;
+            else if(dfsvis[edge]==true)
+                return true;
         }
         
-        if(count!=n)
-            return false;
-        return true;
+        dfsvis[i]=0;
+        
+        return false;
     }
-    vector<int> findOrder(int n, vector<vector<int>>& pre) {
-        int num=pre.size();
+    
+    void topo(vector<int> &vis, vector<int> adj[], int i,stack<int> &s){
+        vis[i]=1;
         
-        vector<int> adj[n];
-        vector<int> ans;
-        vector<int>indegree(n,0);
-        
-        for(auto edge:pre){
-            adj[edge[1]].push_back(edge[0]);
-            indegree[edge[0]]++;
+        for(auto edge:adj[i]){
+            if(!vis[edge]){
+                topo(vis,adj,edge,s);
+            }
         }
         
-        if(kahn(n,adj,indegree,ans))
-            return ans;
+        s.push(i);
+        return;
+    }
+    
+    vector<int> findOrder(int num, vector<vector<int>>& pre) {
+        vector<int> adj [num+1];
         
-        else return{};
+        for(auto x:pre){
+            adj[x[1]].push_back(x[0]);
+        }
+        
+        vector<int> res;
+        
+        vector<int> vis(num,0);
+        vector<int> dfsvis(num,0);
+        
+        for(int i=0;i<num;i++){
+            if(!vis[i]){
+                if(iscycle(vis,dfsvis,i,adj)){
+                    //cout<<i;
+                    return res;
+
+                }
+            }
+        }
+      //  cout<<"bahr";
+        stack<int> s;
+        
+        for(auto &i: vis)i =0;
+        
+        for(int i=0;i<num;i++){
+            if(!vis[i]){
+                topo(vis,adj,i,s);
+            }
+        }
+        
+        while(!s.empty()){
+            res.push_back(s.top());
+            s.pop();
+        }
+        
+        return res;
+        
+        
     }
 };
