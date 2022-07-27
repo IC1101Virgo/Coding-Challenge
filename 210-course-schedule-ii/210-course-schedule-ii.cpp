@@ -19,18 +19,7 @@ public:
         return false;
     }
     
-//     void topo(vector<int> &vis, vector<int> adj[], int i,stack<int> &s){
-//         vis[i]=1;
-        
-//         for(auto edge:adj[i]){
-//             if(!vis[edge]){
-//                 topo(vis,adj,edge,s);
-//             }
-//         }
-        
-//         s.push(i);
-//         return;
-//     }
+
     
     vector<int> findOrder(int num, vector<vector<int>>& pre) {
         vector<int> adj [num+1];
@@ -47,23 +36,12 @@ public:
         for(int i=0;i<num;i++){
             if(!vis[i]){
                 if(iscycle(vis,dfsvis,i,adj,s)){
-                    //cout<<i;
                     return res;
 
                 }
             }
         }
-      //  cout<<"bahr";
-        
-        
-//         for(auto &i: vis)i =0;
-        
-//         for(int i=0;i<num;i++){
-//             if(!vis[i]){
-//                 topo(vis,adj,i,s);
-//             }
-//         }
-        
+  
         while(!s.empty()){
             res.push_back(s.top());
             s.pop();
