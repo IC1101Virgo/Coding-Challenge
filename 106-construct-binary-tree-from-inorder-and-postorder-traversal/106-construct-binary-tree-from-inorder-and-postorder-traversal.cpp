@@ -11,14 +11,12 @@
  */
 class Solution {
 public:
-    TreeNode* helper(vector<int>& postorder, int &postidx, unordered_map<int,int> &m, int start, int end){
-        int n=postorder.size();
-        
+    TreeNode* helper(vector<int> &postorder, int &idx, unordered_map<int,int> &mp, int start, int end){
         if(start<=end){
-            TreeNode *root=new TreeNode(postorder[postidx--]);
+            TreeNode *root=new TreeNode(postorder[idx--]);
             
-            root->right=helper(postorder,postidx,m,m[root->val]+1,end);
-            root->left=helper(postorder,postidx,m,start,m[root->val]-1);
+            root->right=helper(postorder,idx,mp,mp[root->val]+1,end);
+            root->left=helper(postorder,idx,mp,start,mp[root->val]-1);
             
             return root;
         }
@@ -28,11 +26,14 @@ public:
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
         unordered_map<int,int> m;
         
-        for(int i=0;i<inorder.size();i++)
+        int n=inorder.size();
+        
+        for(int i=0;i<n;i++){
             m[inorder[i]]=i;
+        }
         
-        int n=postorder.size()-1;
+        int idx=n-1;
         
-        return helper(postorder,n,m,0,n);
+        return helper(postorder,idx,m,0,n-1);
     }
 };
