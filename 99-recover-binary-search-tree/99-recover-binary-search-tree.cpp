@@ -19,12 +19,12 @@ public:
         
         helper(root->left);
         
-        if(prev!=NULL && root->val<prev->val){
-            if(node1==NULL)
-                node1=prev;
-            if(node1!=NULL)
-                node2=root;
-        }
+       if(prev!=NULL && root->val<prev->val){
+           if(node1==NULL)
+               node1=prev;
+           if(node1!=NULL)
+               node2=root;
+       }
         
         prev=root;
         
