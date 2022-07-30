@@ -11,7 +11,8 @@
  */
 class Solution {
 public:
-    TreeNode *prev=NULL,*node1=NULL,*node2=NULL;
+    TreeNode *prev=NULL, *node1=NULL, *node2=NULL;
+    
     void helper(TreeNode *root){
         if(!root)
             return;
@@ -26,12 +27,15 @@ public:
         }
         
         prev=root;
+        
         helper(root->right);
     }
     void recoverTree(TreeNode* root) {
         if(!root)
             return;
+        
         helper(root);
+        
         swap(node1->val,node2->val);
     }
 };
