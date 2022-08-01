@@ -4,15 +4,14 @@ public:
         int n=h.size();
         
         stack<int> left,right;
-        vector<int> l(n), r(n);
+        vector<int> l(n, -1), r(n);
         
         for(int i=0;i<n;i++){
             while(!left.empty() && h[left.top()]>=h[i])
                 left.pop();
             
-            if(left.empty())
-                l[i]=-1;
-            else l[i]=left.top();
+            if(!left.empty())
+                l[i]=left.top();
             
             left.push(i);
         }
