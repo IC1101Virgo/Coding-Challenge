@@ -20,7 +20,7 @@ public:
         int l=solve(root->left);
         int r=solve(root->right);
         
-        int temp=1+l+r;
+        int temp=l+r;
         
         ans=max(temp,ans);
         
@@ -32,6 +32,6 @@ public:
         
         solve(root);
         
-        return ans-1;
+        return ans;
     }
 };
