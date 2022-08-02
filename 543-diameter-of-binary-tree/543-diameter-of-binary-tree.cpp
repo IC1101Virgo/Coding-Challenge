@@ -12,15 +12,17 @@
 class Solution {
 public:
     int ans=0;
-    int dfs(TreeNode* root){
+    
+    int solve(TreeNode* root){
         if(!root)
             return 0;
         
-        int l=dfs(root->left), r=dfs(root->right);
+        int l=solve(root->left);
+        int r=solve(root->right);
         
-        int temp=l+r;
+        int temp=1+l+r;
         
-        ans=max(ans,temp);
+        ans=max(temp,ans);
         
         return 1+max(l,r);
     }
@@ -28,9 +30,8 @@ public:
         if(!root)
             return 0;
         
-        dfs(root);
+        solve(root);
         
-        return ans;
-            
+        return ans-1;
     }
 };
