@@ -1,31 +1,33 @@
 class Solution {
 public:
-    typedef pair<int,char> pi;
+    typedef pair<int,char> pip;
     string frequencySort(string s) {
         int n=s.size();
         
-        unordered_map<char,int>mp;
+        unordered_map<char,int> mp;
         
-        for(auto x:s)
-            mp[x]++;
+        for(int i=0; i<n; i++){
+            mp[s[i]]++;
+        }
         
-        priority_queue<pi>pq;
+        priority_queue<pip> pq;
         
-        for(auto x:mp)
-            pq.push({x.second,x.first});
+        for(auto x:mp){
+            pq.push({x.second, x.first});
+        }
         
-        string res="";
+        string res;
         
         while(!pq.empty()){
-            auto temp=pq.top();
+            auto [x,y]= pq.top();
             pq.pop();
             
-            int size=temp.first;
-            
-            for(int i=0;i<size;i++)
-                res+=temp.second;
+            while(x--){
+                res+=y;
+            }
         }
         
         return res;
+        
     }
 };
