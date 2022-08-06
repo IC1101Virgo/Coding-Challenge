@@ -1,22 +1,31 @@
 class Solution {
 public:
+    typedef pair<int,int> pip;
     vector<int> frequencySort(vector<int>& nums) {
-        map<int,int> mp;
-        for(int i=0;i<nums.size();i++){
-            mp[nums[i]]++;
+        int n=nums.size();
+        
+        unordered_map<int,int> mp;
+        
+        for(auto x:nums){
+            mp[x]++;
         }
-        priority_queue<pair<int,int>> pq;
-        for(auto it : mp){
-            pq.push({-it.second,it.first});
+        
+        priority_queue<pip> pq;
+        
+        for(auto x:mp){
+            pq.push({-x.second,x.first});
         }
-        vector<int> result;
+        
+        vector<int> ans;
+        
         while(!pq.empty()){
             int x = pq.top().first;
             for(int i=0;i<abs(x);i++)
-                result.push_back(pq.top().second);
+                ans.push_back(pq.top().second);
             
             pq.pop();
         }
-        return result;
+        
+        return ans;
     }
 };
