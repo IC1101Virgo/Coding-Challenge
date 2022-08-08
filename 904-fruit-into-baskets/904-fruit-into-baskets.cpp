@@ -2,12 +2,12 @@ class Solution {
 public:
     
     int totalFruit(vector<int>& fruits) {
-        long long n=fruits.size();
+        int n=fruits.size();
         
-        unordered_map<long long,long long> m;
+        unordered_map<int,int> m;
         
-        long long i=0, j=0;
-        long long ans=0;
+        int i=0, j=0;
+        int ans=0;
         
         while(j<n){
            
