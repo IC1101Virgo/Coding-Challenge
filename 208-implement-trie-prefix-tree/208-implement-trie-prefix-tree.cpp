@@ -1,8 +1,10 @@
 class Trie {
-private:
     
 
-struct TrieNode{
+
+    
+public:
+    struct TrieNode{
     TrieNode *ischild[26];
     bool isword;
     
@@ -16,7 +18,7 @@ struct TrieNode{
     
 };
 TrieNode* root;
-public:
+    
     Trie() {
          root=new TrieNode();
     }
