@@ -21,7 +21,7 @@ public:
         for(auto x:mp){
             if(x.second.size()==degree){
             int mini= *min_element(x.second.begin(),x.second.end());
-                int maxi= *max_element(x.second.begin(),x.second.end());
+            int maxi= *max_element(x.second.begin(),x.second.end());
                 
                 min_len= min(min_len, maxi-mini+1);
                 }
