@@ -13,9 +13,10 @@ public:
             }
             
             while(sum>=target){
-                min_len= min(min_len, j-i);
+             min_len=min(min_len, j-i);
                 sum-=nums[i++];
             }
+            
             
             
         }
