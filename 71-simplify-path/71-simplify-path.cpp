@@ -1,42 +1,44 @@
 class Solution {
 public:
     string simplifyPath(string path) {
-        
         int n=path.size();
         
-        vector<string> v;
+        stack<string> s;
         
         for(int i=0; i<n; i++){
             string res="";
             
-            while(i<n && path[i] != '/'){
+            while(i<n && path[i]!='/'){
                 res+=path[i];
                 i++;
             }
             
-            if(res == "" || res == "."){
+            if(res=="." || res=="")
                 continue;
-            }
             
             else
             {
             if(res==".."){
-                if(v.size()>0)
-                    v.pop_back();
-            }
-                else
-            v.push_back(res);
+                if(!s.empty()){
+                    s.pop();
+                }
+            }  
+                else{
+                    s.push(res);
+                }
             
             }
         }
-       
-         string res="";
         
-        for(int i=0;i<v.size();i++){
-            res+='/'+v[i];
+        string ans="";
+        
+        while(!s.empty()){
+            ans="/"+s.top()+ans;
+            s.pop();
         }
         
-         if(res.size()==0) return "/"; 
-            return res;
+        if(ans.size()==0) return "/";
+        
+        else return ans;
     }
 };
