@@ -19,7 +19,7 @@ public:
             }
             else{
                  dp[i][diff] = 2;
-                ans=max(ans,dp[i][diff] );
+                //ans=max(ans,dp[i][diff] );
             }
         }
     }
