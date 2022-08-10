@@ -1,24 +1,25 @@
 class Solution {
 public:
-    int longestArithSeqLength(vector<int>& nums) {
-        int n=nums.size();
-        
-       int dp[1001][1001];
-        memset(dp,0,sizeof(dp));
-        
-        int maxlen=1;
-        
-        for(int i=1;i<n;i++){
-            for(int j=0;j<i;j++){
-                int diff=nums[i]-nums[j]+500;
-                
-                dp[i][diff]=max(dp[i][diff],1+dp[j][diff]);
-                
-                maxlen=max(maxlen,dp[i][diff]);
+    typedef long long ll;
+    
+    int longestArithSeqLength(vector<int>& A) {
+         int  n = A.size();
+    if(n<3)return n;
+    int ans =2;
+    vector<unordered_map<int, int>>dp(n);
+    for(int i=1; i<n; i++){
+        for(int j=0; j<i; j++){
+            int diff = A[j]-A[i];
+            if( dp[j].find(diff)!=dp[j].end()){
+                dp[i][diff] = dp[j][diff]+1;
+                ans=max(ans,dp[i][diff] );
+            }
+            else{
+                 dp[i][diff] = 2;
+                ans=max(ans,dp[i][diff] );
             }
         }
-        
-        return maxlen+1;
-        
+    }
+    return ans;
     }
 };
