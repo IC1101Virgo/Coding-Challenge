@@ -4,7 +4,7 @@ public:
     void helper(vector<vector<int>>& grid, int i, int hi, int lo){
         
         while(lo<hi){
-            int mid=(lo+hi)/2;
+            int mid=lo+(hi-lo)/2;
             
             if(grid[i][mid]>=0)
                 lo=mid+1;
