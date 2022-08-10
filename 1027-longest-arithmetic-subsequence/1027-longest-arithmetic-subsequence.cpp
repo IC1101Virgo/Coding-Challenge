@@ -10,14 +10,15 @@ public:
         
         vector<unordered_map<int,int>> dp(n);
         
+        
         for(int i=1; i<n; i++){
         for(int j=0; j<i; j++){
                 int diff=A[j]-A[i];
                 
-               if( dp[j].find(diff)!=dp[j].end()){
-                dp[i][diff] = dp[j][diff]+1;
-                ans=max(ans,dp[i][diff] );
-            }
+             if(dp[j].find(diff)!=dp[j].end()){
+                 dp[i][diff]=dp[j][diff]+1;
+                 ans=max(ans, dp[i][diff]);
+             }
                 
                 else{
                     dp[i][diff]=2;
