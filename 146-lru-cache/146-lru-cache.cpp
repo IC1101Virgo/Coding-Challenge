@@ -1,15 +1,17 @@
 class LRUCache {
 public:
     list<pair<int,int>> l;
-    unordered_map<int,list<pair<int,int>>::iterator> m;
     
-    void refresh(int key,int val){
+    unordered_map<int, list<pair<int,int>> :: iterator> m;
+    
+    int size=0;
+    
+    void refresh(int key, int val){
         l.erase(m[key]);
         l.push_front({key,val});
         m[key]=l.begin();
     }
     
-    int size=0;
     LRUCache(int capacity) {
         size=capacity;
     }
@@ -19,9 +21,9 @@ public:
             return -1;
         
         else{
-            int val=(*m[key]).second;
-            refresh(key,val);
-            return val;
+            int value=(*m[key]).second;
+            refresh(key,value);
+            return value;
         }
     }
     
