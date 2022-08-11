@@ -21,7 +21,7 @@ public:
             return -1;
         
         else{
-            int value=(*m[key]).second;
+            int value=m[key]->second;
             refresh(key,value);
             return value;
         }
