@@ -1,47 +1,26 @@
-struct Position {
-    long long int pos;
-    long long int speed;
-    long long int moves;
-    
-    Position(int pos, int speed, int moves) {
-        this -> pos = pos;
-        this -> speed = speed;
-        this -> moves = moves;
-    }
-};
-
 class Solution {
 public:
     int racecar(int target) {
-        queue<Position> q;
-        Position p(0, 1, 0);
-        q.push(p);
-        
-        set<pair<long long int, long long int>> s;
-        
-        while(!q.empty()) {
-            Position u = q.front();
-            q.pop();
-            
-            if(u.pos == target) return u.moves;
-            
-            if(s.find({u.pos, u.speed}) != s.end()) continue;
-            else {
-                s.insert({u.pos, u.speed});
+        queue<vector<int>> q;
+        q.push({0, 1, 1}); // pos, speed, direction +1 or -1
+        int cnt = 0;
+        while (!q.empty()) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                auto v = move(q.front());
+                q.pop();
                 
-				// only cases when you might need to move backwards
-                if((u.pos + u.speed > target && u.speed > 0) || 
-                   (u.pos + u.speed < target && u.speed < 0)) {
-                    long long int speed = u.speed > 0 ? -1 : 1;
-                    Position bkwd(u.pos, speed, u.moves + 1);
-                    q.push(bkwd);
+                if (v[0] == target) return cnt;
+                
+                if (abs(v[0]) <= 2*target) {
+                    q.push({v[0]+v[1]*v[2], v[1]*2, v[2]});
+					// if R is meaningful
+                    if ((v[0]+v[1]*v[2] > target && v[2] > 0) || (v[0]+v[1]*v[2] < target && v[2] < 0))
+                        q.push({v[0], 1, -v[2]});
                 }
-                
-                Position fwd(u.pos + u.speed, 2 * u.speed, u.moves + 1);
-                q.push(fwd);
             }
+            cnt++;
         }
-        
         return -1;
     }
 };
