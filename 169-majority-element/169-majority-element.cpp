@@ -10,7 +10,10 @@ public:
             if(count<=0)
                 ele=nums[i];
             
-            nums[i]==ele?count++:count--;
+            if(nums[i]==ele)
+                count++;
+            
+            else count--;
         }
         
         return ele;
