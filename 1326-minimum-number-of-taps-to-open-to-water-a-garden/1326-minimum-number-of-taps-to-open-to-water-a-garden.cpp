@@ -14,7 +14,7 @@ public:
         
         int count=0, curend=0, ind=0;
         
-        for(int i=0; i<=n; i++){
+        for(int i=0; i<n; i++){
             if(i>ind)
                 return -1;
             
@@ -26,6 +26,6 @@ public:
             }
         }
         
-        return ind>=n?count-1:-1;
+        return ind>=n?count:-1;
     }
 };
