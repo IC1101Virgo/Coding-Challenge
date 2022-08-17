@@ -15,20 +15,20 @@ public:
         if(!root)
             return root;
         
-        //TreeNode *l= trimBST(root->left, low, high);
-        //TreeNode *r= trimBST(root->right, low, high);
+        TreeNode *l= trimBST(root->left, low, high);
+        TreeNode *r= trimBST(root->right, low, high);
         
         
         
         if(root->val < low){
-            return trimBST(root->right, low, high);
+            return r;
         }
         
         if(root->val > high)
-            return trimBST(root->left, low, high);
+            return l;
         
-         root->left=trimBST(root->left, low, high);
-             root->right=trimBST(root->right, low, high);
+         root->left=l;
+             root->right=r;
             return root;
         
     }
