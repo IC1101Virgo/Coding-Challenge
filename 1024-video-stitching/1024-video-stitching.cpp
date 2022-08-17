@@ -1,7 +1,7 @@
 class Solution {
 public:
     int videoStitching(vector<vector<int>>& clips, int t) {
-        sort(clips.begin(), clips.end());
+        //sort(clips.begin(), clips.end());
         
         int s=0, r=0, jump=0;
         
