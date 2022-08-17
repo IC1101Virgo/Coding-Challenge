@@ -14,9 +14,9 @@ public:
         
         int count=0, curend=0, ind=0;
         
-        for(int i=0; i<n; i++){
-            if(i>ind)
-                return -1;
+        for(int i=0; i<=curend; i++){
+            if(i>=n)
+                return count;
             
             ind=max(ind, i+jumps[i]);
             
@@ -26,6 +26,6 @@ public:
             }
         }
         
-        return ind>=n?count:-1;
+        return -1;
     }
 };
