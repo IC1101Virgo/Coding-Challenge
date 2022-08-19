@@ -23,7 +23,7 @@ public:
             curr=curr->next;
         }
         
-        ListNode *prev=NULL, *next=NULL;
+        ListNode *prev=NULL, *next;
         curr=head;
         
         for(int i=0; i<k; i++){
