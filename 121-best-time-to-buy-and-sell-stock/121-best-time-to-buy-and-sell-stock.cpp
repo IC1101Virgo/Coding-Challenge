@@ -3,11 +3,11 @@ public:
     int maxProfit(vector<int>& p) {
         int n=p.size();
         
-        int minv=p[0], maxp=0;
+        int minv=INT_MAX, maxp=0;
         
-        for(int i=1;i<n;i++){
+        for(int i=0;i<n;i++){
             minv=min(minv,p[i]);
-            maxp=max(maxp,p[i]-minv);
+            maxp=max(maxp, p[i]-minv);
         }
         
         return maxp;
