@@ -12,7 +12,7 @@ public:
         
         
         for(int i=1; i<n; i++){
-        for(int j=0; j<i; j++){
+         for(int j=0; j<i; j++){
                 int diff=A[j]-A[i];
                 
              if(dp[j].find(diff)!=dp[j].end()){
