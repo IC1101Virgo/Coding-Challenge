@@ -16,34 +16,28 @@ public:
         return 1;
     }
     void solve(string s, vector<string> temp, vector<vector<string>> &res, int in){
-        int n=s.size();
-        
-        if(in==n){
+        if(in==s.size()){
             res.push_back(temp);
             return;
         }
         
         string x="";
         
-        for(int i=in;i<n;i++){
-            
+        for(int i=in; i<s.size(); i++){
             x+=s[i];
             
             if(ispal(x)){
                 temp.push_back(x);
-                solve(s,temp,res,i+1);
+                solve(s, temp, res, i+1);
                 temp.pop_back();
             }
         }
     }
     vector<vector<string>> partition(string s) {
-       // int n=s.size();
+       vector<string> temp;
+       vector<vector<string>> res;
         
-        vector<string> temp;
-        vector<vector<string>> res;
-        //string x="";
-        
-        solve(s,temp,res,0);
+        solve(s, temp, res, 0);
         
         return res;
     }
