@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool wordBreak(string A, vector<string>& B) {
-       int n=A.size();
+        int n=A.size();
     
     set<string>di;
     
