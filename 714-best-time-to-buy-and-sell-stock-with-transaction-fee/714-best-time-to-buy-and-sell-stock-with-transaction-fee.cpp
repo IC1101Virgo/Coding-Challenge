@@ -4,6 +4,7 @@ public:
         int n=p.size();
         
         int buy=-p[0], sell=0;
+        
         if(n<2)
             return 0;
         
