@@ -35,7 +35,7 @@ public:
                 else if(s1[i-1]==s3[i+j-1] && s2[j-1]==s3[i+j-1])
                     dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
                 
-                //else dp[i][j]=0;
+                else dp[i][j]=0;
             }
         }
         
