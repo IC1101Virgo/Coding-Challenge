@@ -1,29 +1,32 @@
 class Solution {
 public:
-    typedef pair<int, pair<int,int>> pip;
+         typedef pair<int,pair<int,int>> pip;
     vector<vector<int>> kSmallestPairs(vector<int>& nums1, vector<int>& nums2, int k) {
-        vector<vector<int>> ans;
+        vector<vector<int>> res;
         
-        int n1=nums1.size(), n2=nums2.size();
+        int n=nums1.size(), m=nums2.size();
         
         priority_queue<pip, vector<pip>, greater<pip>> pq;
         
-        for(int i=0; i<n2; i++){
-            pq.push({nums1[0]+nums2[i], {0, i}});
+        for(int i=0; i<n; i++){
+            pq.push({nums2[0]+nums1[i], {0,i}});
         }
         
-        while(ans.size()<k && !pq.empty()){
-            auto prime=pq.top();
+        while(res.size()<k && !pq.empty()){
+            auto [x,y]= pq.top();
             pq.pop();
-            int i=prime.second.first, j=prime.second.second;
             
-            ans.push_back({nums1[i], nums2[j]});
+            int a=y.first, b=y.second;
             
-            if(i+1<n1){
-                pq.push({nums1[i+1]+nums2[j], {i+1, j}});
+            res.push_back({nums1[b],nums2[a]});
+            
+            
+            if(a+1<m){
+                pq.push({nums2[a+1]+nums1[b],{a+1,b}});
             }
         }
         
-        return ans;
+        return res;
+                
     }
 };
