@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int t) {
-        vector<int> v(2,0);
+         vector<int> v(2,0);
         
         unordered_map<int,int> mp;
         
@@ -11,6 +11,7 @@ public:
                 v[1]=mp[t-nums[i]];
             }
             
+            else
             mp[nums[i]]=i;
         }
         
