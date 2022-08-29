@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+    vector<vector<int>> fourSum(vector<int>& nums, long target) {
         vector<vector<int>> res;
         sort(nums.begin(),nums.end());
         set<vector<int>> st;
@@ -10,7 +10,7 @@ public:
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
                 int x=j+1, y=n-1;
-                int tar=target-nums[i]-nums[j];
+                long long tar=target-nums[i]-nums[j];
                 while(x<y){
                     if(nums[x]+nums[y]>tar) y--;
                     
