@@ -5,9 +5,9 @@ public:
         stack<char>s;
         
         
-        s.push(num[0]);
+        //s.push(num[0]);
         
-        for(int i=1; i<n; i++){
+        for(int i=0; i<n; i++){
             while(k>0 && !s.empty() && s.top()>num[i]){
                 s.pop();
                 k--;
