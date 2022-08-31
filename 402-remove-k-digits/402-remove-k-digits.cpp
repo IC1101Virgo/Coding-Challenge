@@ -1,7 +1,7 @@
 class Solution {
 public:
     string removeKdigits(string num, int k) {
-        int n=num.size();
+         int n=num.size();
         
         if(n<=k)
             return "0";
@@ -39,7 +39,6 @@ public:
         reverse(res.begin(), res.end());
         
         return res.size()==0?"0":res;
-        
         
     }
 };
