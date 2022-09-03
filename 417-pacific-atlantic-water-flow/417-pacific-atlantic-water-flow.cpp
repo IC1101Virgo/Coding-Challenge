@@ -21,9 +21,7 @@ public:
     }
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& h) {
         int n=h.size(), m=h[0].size();
-        
-        
-        
+      
        at=pa=vector<vector<bool>> (n,vector<bool>(m,0));
         vector<vector<int>> ans;
         if(!n)
@@ -42,6 +40,5 @@ public:
         
         
         return ans;
-        
     }
 };
