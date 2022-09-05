@@ -1,7 +1,7 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        int n=nums.size();
+         int n=nums.size();
         
         vector<int> dp(n+1,0);
         if(n==1)
