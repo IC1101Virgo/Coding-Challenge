@@ -6,8 +6,8 @@ public:
         int i=0,j=n-1;
         
         while(i<j){
-           if(iswalnum(s[i])){
-               if(iswalnum(s[j])){
+           if(isalnum(s[i])){
+               if(isalnum(s[j])){
                    s[i]=tolower(s[i]);
                    s[j]=tolower(s[j]);
                    
