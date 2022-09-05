@@ -11,32 +11,32 @@
 class Solution {
 public:
     void reorderList(ListNode* head) {
-        if(!head || !head->next || !head->next->next)
+        if(!head)
             return;
         
-        ListNode *temp=head;
-        int size=0;
         stack<ListNode*> s;
         
-        while(temp){
-            s.push(temp);
-            size++;
-            temp=temp->next;
+        int l=0;
+        
+        ListNode *curr=head, *temp=head;
+        
+        while(curr){
+             s.push(curr);
+            l++;
+            curr=curr->next;
         }
         
-        temp=head;
+        curr=head;
         
-        for(int i=0;i<size/2;i++){
+        for(int i=0;i<l/2;i++){
             ListNode *ele=s.top();
             s.pop();
-            ele->next=temp->next;
-            temp->next=ele;
-            temp=temp->next->next;
+            ele->next=curr->next;
+            curr->next=ele;
+            curr=curr->next->next;
         }
         
-        temp->next=NULL;
-        
-
+        curr->next=NULL;
         
     }
 };
