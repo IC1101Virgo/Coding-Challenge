@@ -1,29 +1,29 @@
 class Solution {
 public:
-    int dp[13][10001];
-    int helper(vector<int>& coins, int n, int amount){
-        if(n<=0)
-            return dp[n][amount]=INT_MAX-1;
-        
-        if(amount==0)
-            dp[n][amount]=0;
-        
-        if(dp[n][amount]!=-1)
-            return dp[n][amount];
-        
-        if(coins[n-1]<=amount)
-            return dp[n][amount]=min(1+helper(coins,n,amount-coins[n-1]),helper(coins,n-1,amount));
-        
-        else return dp[n][amount]=helper(coins,n-1,amount);
-        
-        
-    }
-    int coinChange(vector<int>& coins, int amount) {
+    int coinChange(vector<int>& coins, int v) {
         int n=coins.size();
-        memset(dp,-1,sizeof(dp));
         
-        int ans= helper(coins,n,amount);
-        
-        return ans==INT_MAX-1?-1:ans;
+         vector<vector<int>> dp(n+1, vector<int>(v+1));
+	    
+	     for(int j=1;j<=v;j++)
+        {
+            dp[0][j]=INT_MAX-1;
+        }
+        for(int i=0;i<=n;i++)
+        {
+            dp[i][0]=0;
+        }
+	    for(int i=1; i<=n; i++){
+	        for(int j=1; j<=v; j++){
+	            if(coins[i-1]<=j){
+	                dp[i][j] = min( 1 + dp[i][j-coins[i-1]], dp[i-1][j]);
+	            }
+	            
+	            else dp[i][j]= dp[i-1][j];
+	        }
+	    }
+	    
+	    return dp[n][v]==INT_MAX-1? -1: dp[n][v];
+	    
     }
 };
