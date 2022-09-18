@@ -17,26 +17,26 @@ public:
             s.push(root);
             root=root->left;
         }
-        
         return;
     }
     BSTIterator(TreeNode* root) {
-       
-        
         helper(root);
     }
     
     int next() {
-        TreeNode *x=s.top();
+        TreeNode *x= s.top();
         s.pop();
         helper(x->right);
-        int v=x->val;
-        return v;
-
+        return x->val;
     }
     
     bool hasNext() {
-        return s.empty()?0:1;
+        
+        if(!s.empty())
+            return 1;
+        
+        else return 0;
+        
     }
 };
 
