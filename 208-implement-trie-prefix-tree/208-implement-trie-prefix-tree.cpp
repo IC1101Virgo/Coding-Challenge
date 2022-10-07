@@ -5,18 +5,18 @@ class Trie {
     
 public:
     struct TrieNode{
-    TrieNode *ischild[26];
-    bool isword;
-    
-    TrieNode(){
-        for(int i=0; i<26; i++){
-            ischild[i]=NULL;
-        }
+        TrieNode *ischild[26];
+        bool isword;
         
-        isword=false;
-    }
+        TrieNode(){
+            for(int i=0; i<26; i++){
+                ischild[i]=NULL;
+            }
+            
+            isword=false;
+        }
+    };
     
-};
 TrieNode* root;
     
     Trie() {
