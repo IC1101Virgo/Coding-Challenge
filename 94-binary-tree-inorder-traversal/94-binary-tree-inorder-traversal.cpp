@@ -17,14 +17,13 @@ public:
         if(!root)
             return v;
         
-        stack<TreeNode*>s;
-        
-        
+        stack<TreeNode*> s;
         
         while(1){
             while(root){
                 s.push(root);
                 root=root->left;
+                
             }
             
             if(s.empty())
@@ -32,13 +31,12 @@ public:
             
             root=s.top();
             
-            
             v.push_back(root->val);
             s.pop();
+            
             root=root->right;
         }
         
         return v;
-        
     }
 };
