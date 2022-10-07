@@ -15,23 +15,27 @@ public:
         if(!root)
             return;
         
-        stack<TreeNode*>s;
+        stack<TreeNode*> s;
         
         s.push(root);
+        
         while(!s.empty()){
-            TreeNode *curr=s.top();
+            TreeNode* temp=s.top();
             s.pop();
             
-            if(curr->right!=NULL)
-                s.push(curr->right);
+            if(temp->right){
+                s.push(temp->right);
+            }
             
-            if(curr->left!=NULL)
-                s.push(curr->left);
+            if(temp->left){
+                s.push(temp->left);
+            }
             
-            if(!s.empty())
-                curr->right=s.top();
+            if(!s.empty()){
+                temp->right=s.top();
+            }
             
-            curr->left=NULL;
+            temp->left=NULL;
         }
         
         return;
