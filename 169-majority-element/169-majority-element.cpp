@@ -1,7 +1,7 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        int n=nums.size();
+         int n=nums.size();
         
         int count=1;
         int ele=nums[0];
@@ -17,6 +17,5 @@ public:
         }
         
         return ele;
-        
     }
 };
