@@ -10,7 +10,8 @@ public:
             for(int j=0; j<x.size(); j++){
                 if(x[j]!=strs[i][j])
                 {
-                    x=x.substr(0,j);
+                    //x=x.substr(0,j);
+                    x.erase(j);
                     break;
                 }
             }
