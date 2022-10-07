@@ -11,21 +11,27 @@
  */
 class Solution {
 public:
-    TreeNode* mergeTrees(TreeNode* r1, TreeNode* r2) {
-        if(!r1 && !r2)
-            return NULL;
+    TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2) {
+        if(!root1)
+            return root2;
         
-        if(!r1 && r2)
-            return r2;
+        if(!root2)
+            return root1;
         
-        if(r1 && !r2)
-            return r1;
+        if(!root1 && root2)
+            return root2;
         
-        r1->val+=r2->val;
+        if(!root2 && root1)
+            return root1;
         
-        r1->left=mergeTrees(r1->left,r2->left);
-        r1->right=mergeTrees(r1->right,r2->right);
+        if(root1 && root2)
+            root1->val+=root2->val;
         
-        return r1;
+        root1->left= mergeTrees(root1->left, root2->left);
+
+                root1->right= mergeTrees(root1->right, root2->right);
+        
+        return root1;
+
     }
 };
