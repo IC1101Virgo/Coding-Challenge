@@ -11,25 +11,25 @@
  */
 class Solution {
 public:
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(!p && q)
-            return false;
+    bool helper(TreeNode* r1, TreeNode* r2){
+        if(r1 && !r2)
+            return 0;
         
-        if(p && !q)
-            return false;
+        if(!r1 && r2)
+            return 0;
         
-        if(!p && !q)
-            return true;
+        if(!r1 && !r2)
+            return 1;
         
-        if(p->val!=q->val)
-            return false;
+        if(r1->val!=r2->val)
+            return 0;
         
-        return isSameTree(p->left,q->right) && isSameTree(p->right, q->left);
+        return helper(r1->left, r2->right) && helper(r1->right, r2->left);
     }
     bool isSymmetric(TreeNode* root) {
-       if(!root)
-           return 1;
+        if(!root)
+            return 1;
         
-        return isSameTree(root,root);
+        return helper(root, root);
     }
 };
