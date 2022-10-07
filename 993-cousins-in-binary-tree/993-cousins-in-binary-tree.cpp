@@ -18,10 +18,10 @@ public:
         
         queue<TreeNode*> q;
         q.push(root);
-        
+       
         while(!q.empty()){
             int size=q.size();
-            bool f1=0,f2=0;
+             bool f1=0,f2=0;
             
             while(size--){
                 TreeNode *temp=q.front();
