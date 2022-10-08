@@ -27,8 +27,9 @@ public:
         k=k%l;
         k=l-k;
         
-        while(k--)
+        while(k--){
             curr=curr->next;
+        }
         
         head=curr->next;
         curr->next=NULL;
