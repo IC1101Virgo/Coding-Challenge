@@ -1,36 +1,39 @@
 class Solution {
 public:
-    bool dfs(vector<vector<char>> &A, string B, int i, int j, int idx){
-    int n=A.size(), m=A[0].size();
-    
-    if(idx==B.size())
-    return 1;
-    
-    if(i<0 || i>=n || j<0 || j>=m || A[i][j]!=B[idx])
-    return 0;
-    
-        A[i][j]='1';
+    int dx[4]={1,-1,0,0};
+    int dy[4]={0,0,1,-1};
+    bool dfs(vector<vector<char>>& b, string w, int i, int j, int idx){
+        int nn=w.size(), n=b.size(), m=b[0].size();
         
-    bool check=dfs(A,B,i+1,j,idx+1)||
-                dfs(A,B,i-1,j,idx+1)||
-                dfs(A,B,i,j+1,idx+1)||
-                dfs(A,B,i,j-1,idx+1);
-        
-        A[i][j]=B[idx];
-                
-    return check;
-                
-}
-    bool exist(vector<vector<char>>& A, string B) {
-        int n=A.size(), m=A[0].size();
-    
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            if(B[0]==A[i][j] && dfs(A,B,i,j,0))
+        if(idx==nn)
             return 1;
-        }
+        
+        if(i>=n || i<0 || j>=m || j<0 || b[i][j]!=w[idx])
+            return 0;
+        
+        
+        b[i][j]='1';
+        
+            
+    bool check=dfs(b,w,i+1,j,idx+1)||
+                dfs(b,w,i-1,j,idx+1)||
+                dfs(b,w,i,j+1,idx+1)||
+                dfs(b,w,i,j-1,idx+1);
+        
+        b[i][j]=w[idx];
+        
+        return check;
     }
-    
-    return 0;
+    bool exist(vector<vector<char>>& b, string w) {
+        int n=b.size(), m=b[0].size();
+        
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                if(w[0]==b[i][j] && dfs(b, w, i, j, 0))
+                    return 1;
+            }
+        }
+        
+        return 0;
     }
 };
