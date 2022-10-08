@@ -16,9 +16,8 @@ public:
             
             dq.push_back({nums[i],i});
             
-            if(i+1-k>=0){
+            if(i+1-k>=0)
                 ans.push_back(dq.front().first);
-            }
         }
         
         return ans;
