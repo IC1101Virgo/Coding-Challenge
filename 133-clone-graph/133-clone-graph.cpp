@@ -18,22 +18,23 @@ public:
     }
 };
 */
-  unordered_map<Node*,Node*>mp;
+unordered_map<Node*, Node*> mp;
+
 class Solution {
 public:
-  
     Node* cloneGraph(Node* node) {
-        if(!node)
+        if(node==NULL)
             return NULL;
         
         if(mp[node])
             return mp[node];
         
-        Node *clone=new Node(node->val);
+        Node *clone= new Node(node->val);
         mp[node]=clone;
         
-        for(auto curr:node->neighbors)
+        for(auto curr:node->neighbors){
             (clone->neighbors).push_back(cloneGraph(curr));
+        }
         
         return clone;
     }
