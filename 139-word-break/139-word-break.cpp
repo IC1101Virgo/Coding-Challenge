@@ -1,11 +1,11 @@
 class Solution {
 public:
     bool wordBreak(string a, vector<string>& b) {
-        set<string> di;
+        set<string> di (b.begin(), b.end());
         int n=a.size();
         
-        for(auto x:b)
-            di.insert(x);
+        // for(auto x:b)
+        //     di.insert(x);
         
         vector<int> dp(n+1, 0);
         dp[0]=1;
