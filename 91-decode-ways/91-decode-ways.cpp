@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numDecodings(string s) {
-        int n=s.size();
+         int n=s.size();
         
         vector<int> dp(n+1,0);
         
