@@ -1,42 +1,55 @@
 class Solution {
 public:
-    void dfs(vector<int> adj[], int idx, vector<int> &vis){
-        if(vis[idx])
-        return;
+    int findpar(int node, vector<int> &par){
+       if(par[node] != node){
+        return findpar(par[node], par);
+       }
 
-        vis[idx]=1;
-
-        for(auto ele:adj[idx]){
-            if(vis[ele]==0)
-            dfs(adj, ele, vis);
+       return par[node];
+        
+    }
+    
+    void uni(vector<int> &par, int a, int b){
+        a=findpar(a,par);
+        b=findpar(b,par);
+        
+       if(a==b)
+           return;
+        
+        else{
+            par[a]=b;
+            return;
         }
-
-        return;
+        
+        
     }
     int findCircleNum(vector<vector<int>>& is) {
         int n=is.size();
-
+        vector<int> par(n, 0);
+        for(int i=0; i<n; i++){
+            par[i]=i;
+        }
         vector<int> adj[n+1];
 
         for(int i=0; i<n; i++){
             for(int j=0; j<n; j++){
-                if(is[i][j]){
-                    adj[i].push_back(j);
-                    adj[j].push_back(i);
+                if(is[i][j])
+                {
+                    uni(par, i, j);
                 }
             }
         }
 
-        vector<int> vis(n, 0);
-        int pro =0;
+
+        int ans=0;
 
         for(int i=0; i<n; i++){
-            if(!vis[i]){
-                dfs(adj, i, vis);
-                pro++;
-            }
+            if(par[i]==i)
+            ans++;
         }
 
-        return pro;
+        return ans;
+
+
     }
 };
