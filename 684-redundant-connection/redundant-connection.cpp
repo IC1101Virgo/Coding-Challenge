@@ -1,11 +1,11 @@
 class Solution {
 public:
     int findpar(int node, vector<int> &par){
-        if(node==par[node])
-            return node;
-        
-        else 
-            return par[node]=findpar(par[node],par);
+       if(par[node] != node){
+        return findpar(par[node], par);
+       }
+
+       return par[node];
         
     }
     
