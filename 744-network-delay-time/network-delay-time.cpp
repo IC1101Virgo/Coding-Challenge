@@ -27,8 +27,8 @@ public:
             for(auto it:adj[prev]){
                 int next = it.first, next_wt = it.second;
 
-                if( dis[next]> wt + next_wt){
-                    dis[next]=wt+next_wt;
+                if( dis[next]> dis[prev] + next_wt){
+                    dis[next]=dis[prev]+next_wt;
                     pq.push({dis[next], next});
                 }
             }
