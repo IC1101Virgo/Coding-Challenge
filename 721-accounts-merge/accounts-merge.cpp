@@ -6,7 +6,7 @@ public:
         if(parent[x] == x)
         return x;
 
-        else return parent[x]=find_s(parent[x]);
+        else return find_s(parent[x]);
     }
 
     void make_union(int a, int b){
